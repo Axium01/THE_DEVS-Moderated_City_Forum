@@ -55,14 +55,8 @@ function deletePost() {
 document.getElementById('deletePost').addEventListener('click', deletePost);
 
 function render() {
-  const postContainer = document.getElementById('postContainer');
+  const postContainer = document.getElementById('mainPostList');
   const posts = readPost(); // grab post contents
-
-  // only appears if the cart is empty, ends function early
-  if (posts.length === 0) {
-    postContainer.innerHTML = `<p>There is no posts.</p>`;
-    return;
-  }
 
   // html contains ALL of the stuff in the post table
   let html = ``;
@@ -86,7 +80,7 @@ function render() {
 function removePost(id) {
   let post = readPost();
   post = post.filter(item => item.id !== id);
-  writeCart(post);
+  writePost(post);
   render(); // rerender so that it actually changes graphically
 }
 
@@ -95,5 +89,6 @@ render();
     </body>
 
 </html>
+
 
 
