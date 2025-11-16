@@ -18,11 +18,9 @@
   <main>
     <div id="mainPostList">
       <label>
-        Post Title<br />
         <input type="text" name="title" id="title" placeholder="Post Title" required>
       </label>
       <label>
-        Post Title<br />
         <input type="text" name="content" id="content" placeholder="Type your post here..." required>
       </label>
     </div>
@@ -44,13 +42,11 @@
     }
 
     function addToList() {
-      const title = document.getElementById("title");
-      const content = document.getElementById("content");
-      const titleText = title.value;
-      const contentText = content.value;
+      const title = document.getElementById("title").value;
+      const content = document.getElementById("content").value;
 
       let post = readPost();
-      post.push({titleText, contentText});
+      post.push({title, content});
       console.log(post);
       writePost(post);
     }
