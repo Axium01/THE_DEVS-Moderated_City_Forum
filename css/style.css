@@ -1,0 +1,89 @@
+body {
+    margin: 0;
+}
+
+
+header {
+    background-color: gray;
+    border-bottom: 1px solid black;
+
+    display: flex;
+    position: static;
+}
+
+main {
+    width: 100%;
+    height: 100%;
+    
+    display: flex;
+    justify-content: center;
+}
+
+footer {
+    position: static;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: 0;
+}
+
+#websiteTitle
+{
+    /*  */
+}
+
+#mainPostList {
+    border: 1.5px solid black;
+    border-radius: 5px;
+
+    width: 70%;
+    height: 330px;
+
+    margin: 70px;
+    padding: 10px;
+
+    overflow: scroll;
+}
+
+#newPostButton {
+    font-size: 1.25rem;
+
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+
+    padding: 4px 8px;
+}
+
+/***** Home page post *****/
+div.postBody {
+    border: 1px solid black;
+    border-radius: 5px;
+
+    margin-top: 10px;
+}
+
+
+.postTitle, .postContent {
+    border: 1px solid black;
+    border-radius: 5px;
+
+    margin: 10px;
+}
+
+/* Post info */
+.postInfo {
+    display: flex;
+    justify-content: space-between;
+}
+.postDate {
+    font-size: .8rem;
+    border: 0px;
+
+    margin-left: 5px;
+}
+
+div.postBody button {
+    margin: 5px;
+}
