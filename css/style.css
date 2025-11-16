@@ -26,6 +26,7 @@ footer {
     right: 0;
 
     margin: 0;
+    padding: 5px;
 }
 
 #websiteTitle
@@ -38,22 +39,30 @@ footer {
     border-radius: 5px;
 
     width: 70%;
-    height: 330px;
+    height: 630px;
 
     margin: 70px;
     padding: 10px;
 
+    display: flex;
+    flex-direction: column;
+    
     overflow: scroll;
 }
 
 #newPostButton {
-    font-size: 1.25rem;
+    font-size: 1.8rem;
+
+    border: 1px solid black;
+    border-radius: 5px;
+    color: black;
+    text-decoration: none;
 
     position: fixed;
     bottom: 5%;
     right: 5%;
 
-    padding: 4px 8px;
+    padding: 8px 12px;
 }
 
 /***** Home page post *****/
@@ -70,6 +79,7 @@ div.postBody {
     border-radius: 5px;
 
     margin: 10px;
+    width: 98%;
 }
 
 /* Post info */
@@ -87,3 +97,24 @@ div.postBody {
 div.postBody button {
     margin: 5px;
 }
+
+
+/***** Create Post Page *****/
+#createPost {
+    font-size: 1.8rem;
+
+    border: 1px solid black;
+    border-radius: 5px;
+    color: black;
+    text-decoration: none;
+
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+
+    padding: 8px 12px;
+}
+
+/* .postTitle, .postContent {
+    width: 98%;
+} */

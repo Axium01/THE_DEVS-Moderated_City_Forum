@@ -7,7 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="author" content="The Devs: Sam Getahun, Gabriella Kulondwa, Milo Wearn, Rick Carlin">
   <meta name="description" content="">
-  <title>Home Page</title>
   <link href="../css/style.css" rel="stylesheet" type="text/css">
 </head>
 
@@ -18,14 +17,14 @@
   <main>
     <div id="mainPostList">
       <label>
-        <input type="text" id="title" placeholder="Post Title" required>
+        <input type="text" id="title" placeholder="Post Title" class="postTitle" required>
       </label>
       <label>
-        <input type="text" id="content" placeholder="Type your post here..." required>
+        <input type="text" id="content" placeholder="Type your post here..." class="postContent" required>
       </label>
     </div>
 
-    <button id="createPost" onclick="addToList()">New Post</button>
+    <button id="createPost" onclick="addToList(), document.location='../index.html'">New Post</button>
   </main>
   <footer>
   </footer>
