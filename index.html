@@ -38,7 +38,7 @@
         <script>
             const KEY = 'postKey';
 
-function readCart() {
+function readPost() {
   try { return JSON.parse(localStorage.getItem(KEY)) || []; }
   catch { return []; }
 }
@@ -89,6 +89,7 @@ render();
     </body>
 
 </html>
+
 
 
 
