@@ -16,8 +16,62 @@
 		<footer>
 			<p>TEST</p>
 		</footer>
+		<script>
+			const KEY = 'postKey';
+
+			function readCart() {
+  				try { return JSON.parse(localStorage.getItem(KEY)) || []; }
+  				catch { return []; }
+			}
+
+function writePost(post) {
+  localStorage.setItem(KEY, JSON.stringify(post));
+}
+
+function deletePost() {
+  localStorage.removePost(KEY);
+  render();
+}
+
+document.getElementById('deletePost').addEventListener('click', deletePost);
+
+function render() {
+  const postContainer = document.getElementById('mainPostList');
+  const posts = readPost(); // grab post contents
+
+  // only appears if the cart is empty, ends function early
+  if (posts.length === 0) {
+    postContainer.innerHTML = `<p>There is no posts.</p>`;
+    return;
+  }
+
+  // html contains ALL of the stuff in the post table
+  let html = ``;
+
+  			// POST ITEM DISPLAY //
+  			posts.forEach((item, i) => {
+    			html += `
+          			<div id="postBody">
+            		<h2 id="postTitle">${item.title}</h2>
+            		<p id="postContent">${item.content}</p>
+          			</div>`; 
+  				});
+  				postContainer.innerHTML = html;
+			}
+
+			function removePost(id) {
+  				let post = readPost();
+  				post = post.filter(item => item.id !== id);
+  				writeCart(post);
+  				render(); // rerender so that it actually changes graphically
+			}
+
+			render();
+		</script>
     </body>
+	
 
 </html>
+
 
 
