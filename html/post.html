@@ -53,7 +53,7 @@
       console.log(title);
       console.log(content);
       let post = readPost();
-      const lastId = post.length > 0 ? Math.max(...data.map(item => item.id)) : 0;
+      const lastId = post.length > 0 ? Math.max(...post.map(item => item.id)) : 0;
       const newId = lastId + 1;
       post.push({newId, title, content, formattedDate});
       
