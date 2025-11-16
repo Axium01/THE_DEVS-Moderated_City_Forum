@@ -63,8 +63,8 @@ function render() {
         	<h1 class="postTitle">${item.title}</h1>
             <p class="postContent">${item.content}</p>
             <div class="postInfo">
-                <p class="postDate">${item.formattedDate}</p>
-                <button class="dropDownButton" onclick="removePost(${item.newId}">v</button>
+                <p class="postDate">${item.date}</p>
+                <button class="dropDownButton" onclick="removePost(${item.id}">v</button>
             </div>
         </div>`; 
 	  
@@ -74,7 +74,7 @@ function render() {
 
 function removePost(id) {
   let post = readPost();
-  post = post.filter(item => item.newId !== id);
+  post = post.filter(item => item.id !== id);
   writePost(post);
   render(); // rerender so that it actually changes graphically
 }
@@ -84,6 +84,7 @@ render();
     </body>
 
 </html>
+
 
 
 
