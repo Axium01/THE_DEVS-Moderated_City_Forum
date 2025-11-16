@@ -18,10 +18,10 @@
   <main>
     <div id="mainPostList">
       <label>
-        <input type="text" name="title" id="title" placeholder="Post Title" required>
+        <input type="text" id="title" placeholder="Post Title" required>
       </label>
       <label>
-        <input type="text" name="content" id="content" placeholder="Type your post here..." required>
+        <input type="text" id="content" placeholder="Type your post here..." required>
       </label>
     </div>
 
@@ -44,10 +44,11 @@
     function addToList() {
       const title = document.getElementById("title").value;
       const content = document.getElementById("content").value;
-
+      console.log(title);
+      console.log(content);
       let post = readPost();
       post.push({title, content});
-      console.log(post);
+      
       writePost(post);
     }
   </script>
