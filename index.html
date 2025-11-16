@@ -1,28 +1,47 @@
 <!DOCTYPE html>
-<html>
-	<head>
-    	<meta charset="utf-8">
-    	<meta name="viewport" content="width=device-width">
-    	<title>Home Page</title>
-    	<link rel="stylesheet" href="css/style.css">
-</head>
+<html lang="en">
+    <head>
+        <title>PAGENAME | City Web Forum</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="author" content="The Devs: Sam Getahun, Gabriella Kulondwa, Milo Wearn, Rick Carlin">
+        <meta name="description" content=""> 
+		<title>Home Page</title>
+        <link href="/css/style.css" rel="stylesheet" type="text/css">
+    </head>
     <body>
         <header>
-        	<h1>TEST</h1>
+            <h1 class="websiteTitle">Moderated City Forum</h1>
         </header>
-        <main id="mainPostList">
-        	<p>TEST</p>
-    	</main> 
-		<footer>
-			<p>TEST</p>
-		</footer>
-		<script>
-			const KEY = 'postKey';
+        <main>
+            <div id="mainPostList"> 
+                <!-- Post Template -->
+                
+                 <div class="postBody"> <!-- Post -->
+                    <h1 class="postTitle">Post Title</h1>
+                    <p class="postContent">
+                        Post Content
+                    </p>
+                    <div class="postInfo">
+                        <p class="postDate">##/##/##</p>
+                        <button class="dropDownButton">v</button>
+                    </div>
+                 </div> <!-- End of Post -->
 
-			function readCart() {
-  				try { return JSON.parse(localStorage.getItem(KEY)) || []; }
-  				catch { return []; }
-			}
+
+            <!-- New Post Button (Part of main but shown in footer) -->
+             <button id="newPostButton">New Post</button>
+        </main>
+        <footer>
+            <a href="about.html">about</a>
+        </footer>
+        <script>
+            const KEY = 'postKey';
+
+function readCart() {
+  try { return JSON.parse(localStorage.getItem(KEY)) || []; }
+  catch { return []; }
+}
 
 function writePost(post) {
   localStorage.setItem(KEY, JSON.stringify(post));
@@ -36,7 +55,7 @@ function deletePost() {
 document.getElementById('deletePost').addEventListener('click', deletePost);
 
 function render() {
-  const postContainer = document.getElementById('mainPostList');
+  const postContainer = document.getElementById('postContainer');
   const posts = readPost(); // grab post contents
 
   // only appears if the cart is empty, ends function early
@@ -48,30 +67,26 @@ function render() {
   // html contains ALL of the stuff in the post table
   let html = ``;
 
-  			// POST ITEM DISPLAY //
-  			posts.forEach((item, i) => {
-    			html += `
-          			<div id="postBody">
-            		<h2 id="postTitle">${item.title}</h2>
-            		<p id="postContent">${item.content}</p>
-          			</div>`; 
-  				});
-  				postContainer.innerHTML = html;
-			}
+  // POST ITEM DISPLAY //
+  posts.forEach((item, i) => {
+    html += `
+          <div id="postBody">
+            <h2 id="postTitle">${item.title}</h2>
+            <p id="postContent">${item.content}</p>
+          </div>`; 
+  });
+  postContainer.innerHTML = html;
+}
 
-			function removePost(id) {
-  				let post = readPost();
-  				post = post.filter(item => item.id !== id);
-  				writeCart(post);
-  				render(); // rerender so that it actually changes graphically
-			}
+function removePost(id) {
+  let post = readPost();
+  post = post.filter(item => item.id !== id);
+  writeCart(post);
+  render(); // rerender so that it actually changes graphically
+}
 
-			render();
-		</script>
+render();
+        </script>
     </body>
-	
 
 </html>
-
-
-
