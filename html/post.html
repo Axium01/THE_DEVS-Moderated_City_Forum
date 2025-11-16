@@ -50,11 +50,11 @@
       const month = String(today.getMonth() + 1).padStart(2, '0'); // january is 0
       const year = today.getFullYear();
       const formattedDate = `${day}/${month}/${year}`;
-      const lastId = data.length > 0 ? Math.max(...data.map(item => item.id)) : 0;
-      const newId = lastId + 1;
       console.log(title);
       console.log(content);
       let post = readPost();
+      const lastId = post.length > 0 ? Math.max(...data.map(item => item.id)) : 0;
+      const newId = lastId + 1;
       post.push({newId, title, content, formattedDate});
       
       writePost(post);
