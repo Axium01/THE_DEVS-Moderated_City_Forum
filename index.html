@@ -70,10 +70,15 @@ function render() {
   // POST ITEM DISPLAY //
   posts.forEach((item, i) => {
     html += `
-          <div id="postBody">
-            <h2 id="postTitle">${item.title}</h2>
-            <p id="postContent">${item.content}</p>
-          </div>`; 
+        <div class="postBody">
+        	<h1 class="postTitle">${item.title}</h1>
+            <p class="postContent">${item.content}</p>
+            <div class="postInfo">
+                <p class="postDate">${item.postdate}</p>
+                <button class="dropDownButton">v</button>
+            </div>
+        </div>`; 
+	  
   });
   postContainer.innerHTML = html;
 }
@@ -90,4 +95,5 @@ render();
     </body>
 
 </html>
+
 
