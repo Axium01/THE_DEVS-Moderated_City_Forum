@@ -44,10 +44,18 @@
     function addToList() {
       const title = document.getElementById("title").value;
       const content = document.getElementById("content").value;
+      // date stuff //
+      const today = new Date();
+      const day = String(today.getDate()).padStart(2, '0');
+      const month = String(today.getMonth() + 1).padStart(2, '0'); // january is 0
+      const year = today.getFullYear();
+      const formattedDate = `${day}/${month}/${year}`;
+      const lastId = data.length > 0 ? Math.max(...data.map(item => item.id)) : 0;
+      const newId = lastId + 1;
       console.log(title);
       console.log(content);
       let post = readPost();
-      post.push({title, content});
+      post.push({newId, title, content, formattedDate});
       
       writePost(post);
     }
