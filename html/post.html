@@ -46,9 +46,11 @@
     function addToList() {
       const title = document.getElementById("title");
       const content = document.getElementById("content");
+      const titleText = title.value;
+      const contentText = content.value;
 
       let post = readPost();
-      post.push({title, content});
+      post.push({titleText, contentText});
       console.log(post);
       writePost(post);
     }
