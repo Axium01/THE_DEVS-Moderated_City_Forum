@@ -48,7 +48,6 @@
       const content = document.getElementById("content");
 
       let post = readPost();
-      const idx = post.findIndex(it => it.id === id);
       post.push({title, content});
       writePost(post);
     }
