@@ -1,120 +1,165 @@
-body {
-    margin: 0;
+:root{
+    --bg: #c9d4ea;
+    --card: #ffffff5f;
+    --accent: #2563eb;
+    --muted: #6b7280;
+    --border: #e6e9ee;
+    --radius: 10px;
+    --max-width: 1100px;
+    --gap: 12px;
+}
+
+*{box-sizing:border-box}
+
+
+body{
+    margin:0;
+    background:var(--bg);
+    color:#0f1724;
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height:1.45;
+}
+
+header{
+    background:var(--card);
+    border-bottom:1px solid var(--border);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:14px 20px;
+    position:sticky;
+    top:0;
+    z-index:30;
+}
+
+#websiteTitle{
+    font-size:18px;
+    font-weight:700;
+    color:var(--accent);
+}
+
+main{
+    display:flex;
+    justify-content:center;
+    padding:28px 16px 48px;
+    min-height:calc(100vh - 140px);
+}
+
+footer{
+    background:transparent;
+    padding:14px 20px;
+    text-align:center;
+    color:var(--muted);
+    font-size:12px;
+}
+
+#mainPostList{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    width:100%;
+    max-width:var(--max-width);
+    height:calc(100vh - 240px);
+    margin:0;
+    padding:16px;
+    display:flex;
+    flex-direction:column;
+    gap:var(--gap);
+    overflow-y:auto;
+}
+
+/* Floating action button used for both new/create */
+#newPostButton, #createPost{
+    font-size:16px;
+    background:var(--accent);
+    color:white;
+    border:0;
+    border-radius:999px;
+    text-decoration:none;
+    position:fixed;
+    bottom:24px;
+    right:24px;
+    padding:12px 16px;
+    cursor:pointer;
+
 }
 
 
-header {
-    background-color: gray;
-    border-bottom: 1px solid black;
-
-    display: flex;
-    position: static;
+/* Home page post */
+.postBody{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:14px;
+    margin:0;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
 }
 
-main {
-    width: 100%;
-    height: 100%;
-    
-    display: flex;
-    justify-content: center;
+.postTitle{
+    font-size:17px;
+    font-weight:700;
+    margin:0;
+    color:#0b1220;
 }
 
-footer {
-    position: static;
-    bottom: 0;
-    left: 0;
-    right: 0;
-
-    margin: 0;
-    padding: 5px;
-}
-
-#websiteTitle
-{
-    /*  */
-}
-
-#mainPostList {
-    border: 1.5px solid black;
-    border-radius: 5px;
-
-    width: 70%;
-    height: 630px;
-
-    margin: 70px;
-    padding: 10px;
-
-    display: flex;
-    flex-direction: column;
-    
-    overflow: scroll;
-}
-
-#newPostButton {
-    font-size: 1.8rem;
-
-    border: 1px solid black;
-    border-radius: 5px;
-    color: black;
-    text-decoration: none;
-
-    position: fixed;
-    bottom: 5%;
-    right: 5%;
-
-    padding: 8px 12px;
-}
-
-/***** Home page post *****/
-div.postBody {
-    border: 1px solid black;
-    border-radius: 5px;
-
-    margin-top: 10px;
+.postContent{
+    font-size:15px;
+    color:var(--muted);
+    margin:0;
+    white-space:pre-wrap;
 }
 
 
-.postTitle, .postContent {
-    border: 1px solid black;
-    border-radius: 5px;
 
-    margin: 10px;
-    width: 98%;
+#newPostButton, #createPost{
+    font-size:16px;
+    background:var(--accent);
+    color:white;
+    border:0;
+    border-radius:999px;
+    text-decoration:none;
+    position:fixed;
+    bottom:24px;
+    right:24px;
+    padding:12px 16px;
+    box-shadow:0 8px 24px rgba(37,99,235,0.18);
+    cursor:pointer;
+}
+
+/* Home page post */
+.postBody{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:14px;
+    box-shadow:0 4px 10px rgba(2,6,23,0.03);
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.postTitle{
+    font-size:17px;
+    font-weight:700;
+    margin:0;
+    color:#0b1220;
+}
+
+.postContent{
+    font-size:15px;
+    color:var(--muted);
+    margin:0;
+    white-space:pre-wrap;
 }
 
 /* Post info */
-.postInfo {
-    display: flex;
-    justify-content: space-between;
+.postInfo{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:8px;
+    color:var(--muted);
+    font-size:13px;
 }
-.postDate {
-    font-size: .8rem;
-    border: 0px;
-
-    margin-left: 5px;
-}
-
-div.postBody button {
-    margin: 5px;
-}
-
-
-/***** Create Post Page *****/
-#createPost {
-    font-size: 1.8rem;
-
-    border: 1px solid black;
-    border-radius: 5px;
-    color: black;
-    text-decoration: none;
-
-    position: fixed;
-    bottom: 5%;
-    right: 5%;
-
-    padding: 8px 12px;
-}
-
-/* .postTitle, .postContent {
-    width: 98%;
-} */
