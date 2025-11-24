@@ -247,3 +247,45 @@ section {
     color: black;
     font-weight:700;
 }
+
+.homeButtons {
+    display: grid;
+    grid-template-rows: 50% 50%;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: 
+    'rules profile'
+    'posts about';
+}
+
+.homeButtons a {
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    font-weight: 700;
+
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:14px;
+    margin:0;
+}
+
+.rules {
+    grid-area: rules;
+    
+}
+
+.profile {
+    grid-area: profile;
+    
+}
+
+.posts {
+    grid-area: posts;
+    
+}
+
+.about {
+    grid-area: about;
+    
+}
