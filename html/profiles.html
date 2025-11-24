@@ -9,98 +9,101 @@
   <link href="../css/style.css" rel="stylesheet" type="text/css">
   </head>
 
-<body>
-  <header>
-    <h1 class="websiteTitle">Moderated City Forum</h1>
-    <button class="navButton" onclick="showNav()">☰</button>
-    <nav>
-      <a href="../index.html">Home</a>
-      <a href="rules.html">Rules</a>
-      <a href="about.html">About</a>
-      <a href="profiles.html" aria-current="page">Profile</a>
-    </nav>
-  </header>
+  <body>
+    <header>
+      <h1 class="websiteTitle">Moderated City Forum</h1>
+      <button class="navButton" onclick="showNav()">☰</button>
+      <nav>
+        <a href="../index.html">Home</a>
+        <a href="rules.html">Rules</a>
+        <a href="about.html">About</a>
+        <a href="profiles.html" aria-current="page">Profile</a>
+      </nav>
+    </header>
 
-  <main class="profileWrapper">
-    <!-- Profile editor / display -->
+    <main>
+      <div class="profileWrapper">
+        <!-- Profile editor / display -->
 
-    <!-- Profile form: shown when the user needs to create or edit their profile -->
-    <form id="profileForm" class="profileForm" style="display:none">
-      <label>
-        Full name
-        <input type="text" id="pf_name" name="name" placeholder="Your full name">
-      </label>
-      <label>
-        Role / Title
-        <input type="text" id="pf_role" name="role" placeholder="Community Member · City">
-      </label>
-      <label>
-        Neighborhood
-        <input type="text" id="pf_neighborhood" name="neighborhood" placeholder="e.g. Downtown">
-      </label>
-      <label>
-        Short bio
-        <textarea id="pf_bio" name="bio" rows="3" placeholder="A short description about you"></textarea>
-      </label>
-      <div style="margin-top:8px;">
-        <button type="submit">Save profile</button>
-        <button type="button" id="pf_cancel">Cancel</button>
-      </div>
-    </form>
+        <!-- Profile form: shown when the user needs to create or edit their profile -->
+        <form id="profileForm" class="profileForm">
+          <label>
+            Full name
+            <input type="text" id="pf_name" name="name" placeholder="Your full name">
+          </label>
+          <label>
+            Role / Title
+            <input type="text" id="pf_role" name="role" placeholder="Community Member · City">
+          </label>
+          <label>
+            Neighborhood
+            <input type="text" id="pf_neighborhood" name="neighborhood" placeholder="e.g. Downtown">
+          </label>
+          <label>
+            Short bio
+            <textarea id="pf_bio" name="bio" rows="3" placeholder="A short description about you"></textarea>
+          </label>
+          <div style="margin-top:8px;">
+            <button type="submit">Save profile</button>
+            <button type="button" id="pf_cancel">Cancel</button>
+          </div>
+        </form>
 
-    <!-- Profile Card: populated from saved profile data when present -->
-    <section class="profileCard" id="profileCard" style="display:none">
-      <div class="profileAvatar">
-        <div class="avatarCircle" id="pf_avatar">--</div>
-      </div>
+        <!-- Profile Card: populated from saved profile data when present -->
+        <section class="profileCard" id="profileCard">
+          <div class="profileAvatar">
+            <div class="avatarCircle" id="pf_avatar">--</div>
+          </div>
 
-      <div class="profileMain">
-        <h2 class="profileName" id="pf_name_display">Your name</h2>
-        <p class="profileRole" id="pf_role_display">Role · Neighborhood</p>
-        <p class="profileBio" id="pf_bio_display">Profile bio will appear here.</p>
-      </div>
+          <div class="profileMain">
+            <h2 class="profileName" id="pf_name_display">Your name</h2>
+            <p class="profileRole" id="pf_role_display">Role · Neighborhood</p>
+            <p class="profileBio" id="pf_bio_display">Profile bio will appear here.</p>
+          </div>
 
-      <dl class="profileStats" id="pf_stats">
-        <div>
-          <dt>Posts</dt>
-          <dd id="pf_posts">0</dd>
+          <dl class="profileStats" id="pf_stats">
+            <div>
+              <dt>Posts</dt>
+              <dd id="pf_posts">0</dd>
+            </div>
+            <div>
+              <dt>Comments</dt>
+              <dd id="pf_comments">0</dd>
+            </div>
+            <div>
+              <dt>Member Since</dt>
+              <dd id="pf_memberSince">-</dd>
+            </div>
+          </dl>
+        </section>
+
+        <!-- Edit / Create controls -->
+        <div style="margin:14px 0;">
+          <button id="pf_edit">Create / Edit Profile</button>
         </div>
-        <div>
-          <dt>Comments</dt>
-          <dd id="pf_comments">0</dd>
-        </div>
-        <div>
-          <dt>Member Since</dt>
-          <dd id="pf_memberSince">-</dd>
-        </div>
-      </dl>
-    </section>
+      </div>
+      
 
-    <!-- Edit / Create controls -->
-    <div style="margin:14px 0;">
-      <button id="pf_edit">Create / Edit Profile</button>
-    </div>
-
-  </main>
+    </main>
 
     <footer>
-    <nav>
-      <a href="../index.html">Home</a>
-      <a href="rules.html">Rules</a>
-      <a href="about.html">About</a>
-      <a href="profiles.html" aria-current="page">Profile</a>
-    </nav>
-  </footer>
+      <nav>
+        <a href="../index.html">Home</a>
+        <a href="rules.html">Rules</a>
+        <a href="about.html">About</a>
+        <a href="profiles.html" aria-current="page">Profile</a>
+      </nav>
+    </footer>
 
-  <div id="navMenu">
-    <nav>
-      <a href="../index.html">Home</a>
-      <a href="rules.html">Rules</a>
-      <a href="about.html">About</a>
-      <a href="profiles.html" aria-current="page">Profile</a>
-    </nav>
-  </div>
-</body>
-<script src="../js/script-navMenu.js"></script>
+    <div id="navMenu">
+      <nav>
+        <a href="../index.html">Home</a>
+        <a href="rules.html">Rules</a>
+        <a href="about.html">About</a>
+        <a href="profiles.html" aria-current="page">Profile</a>
+      </nav>
+    </div>
+  </body>
+  <script src="../js/script-navMenu.js"></script>
 </html>
 
