@@ -31,11 +31,11 @@ const KEY = 'postKey';
         <div class="postBody">
         	<h1 class="postTitle">${item.title}</h1>
             <p class="postContent">${item.content}</p>
-            <div class="postInfo">
                 <p class="postDate">${item.date}</p>
-                <button class="dropDownButton" onclick="removePost(${item.id})">Delete Post</button>
-            </div>
+                <button class="delete" onclick="removePost(${item.id})">x</button>
         </div>`;
+
+        
 
       });
       postContainer.innerHTML = html;

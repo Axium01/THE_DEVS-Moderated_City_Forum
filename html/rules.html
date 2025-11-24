@@ -12,6 +12,12 @@
 <body>
   <header>
     <h1 class="websiteTitle">Moderated City Forum</h1>
+    <button class="navButton" onclick="showNav()">☰</button>
+    <nav>
+      <a href="rules.html">Rules</a>
+      <a href="about.html">About</a>
+      <a href="profiles.html">Profile</a>
+    </nav>
   </header>
 
   <main>
@@ -86,15 +92,23 @@
       </p>
     </section>
   </main>
-
   <footer>
-    <nav class="footerNav">
+    <nav>
       <a href="../index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="post.html">New Post</a>
-      <a href="profile.html">Profile</a>
       <a href="rules.html" aria-current="page">Rules</a>
+      <a href="about.html">About</a>
+      <a href="profiles.html">Profile</a>
     </nav>
   </footer>
+
+  <div id="navMenu">
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="rules.html" aria-current="page">Rules</a>
+      <a href="html/about.html">About</a>
+      <a href="profiles.html">Profile</a>
+    </nav>
+  </div>
 </body>
+<script src="../js/script-navMenu.js"></script>
 </html>
