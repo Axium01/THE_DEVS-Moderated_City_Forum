@@ -11,29 +11,34 @@
     <body>
         <header>
             <h1 class="websiteTitle">Moderated City Forum</h1>
+            <button class="navButton" onclick="showNav()">☰</button>
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="rules.html">Rules</a>
+                <a href="about.html">About</a>
+                <a href="profiles.html">Profile</a>
+            </nav>
         </header>
         <main>
             <div id="mainPostList"> 
-                <!-- Post Template -->
-                
-                 <div class="postBody"> <!-- Post -->
-                    <h1 class="postTitle">Post Title</h1>
-                    <p class="postContent">
-                        Post Content
-                    </p>
-                    <div class="postInfo">
-                        <p class="postDate">##/##/##</p>
-                        <button class="dropDownButton">v</button>
-                    </div>
-                 </div> <!-- End of Post -->
-
-
-            <!-- New Post Button (Part of main but shown in footer) -->
-             <button id="newPostButton">New Post</button>
+    
+            </div>
         </main>
         <footer>
-            <a href="about.html">about</a>
+            <nav>
+            <a href="../index.html">Home</a>
+            <a href="rules.html">Rules</a>
+            <a href="about.html">About</a>
+            <a href="profiles.html">Profile</a>
+            </nav>
         </footer>
+        <div id="navMenu">
+            <nav>
+            <a href="rules.html">Rules</a>
+            <a href="about.html">About</a>
+            <a href="profiles.html">Profile</a>
+            </nav>
+        </div>
     </body>
     <script src="../js/script-navMenu.js"></script>
 </html>
