@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <title>Home Page | City Web Forum</title>
   <meta charset="utf-8">
@@ -9,65 +8,65 @@
   <meta name="description" content="">
   <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
-
 <body>
   <header>
     <h1 class="websiteTitle">Moderated City Forum</h1>
     <button class="navButton" onclick="showNav()">☰</button>
     <nav>
-      <a href="../index.html" aria-current="page">Posts</a>
-      <a href="html/home.html">Home</a>
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="html/feed.html">Feed</a>
+      <a href="html/post.html">Create Post</a>
       <a href="html/rules.html">Rules</a>
       <a href="html/about.html">About</a>
       <a href="html/profiles.html">Profile</a>
     </nav>
   </header>
+
+  <div id="navMenu">
+      <nav>
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="html/feed.html">Feed</a>
+        <a href="html/post.html">Create Post</a>
+        <a href="html/rules.html">Rules</a>
+        <a href="html/about.html">About</a>
+        <a href="html/profiles.html">Profile</a>
+      </nav>
+  </div>
+
   <main>
-    <div id="mainPostList">
-      <!-- Post Template -->
-
-      <div class="postBody"> <!-- Post -->
-        <h1 class="postTitle">Post Title</h1>
-        <p class="postContent">
-          Post Content
+    <div class="mainContent"> 
+      <div>
+        <h1>Welcome!</h1>
+        <p>
+          This moderated city forum is to provide the city with a safe and professional way to communicate and connect with the community <br>
+          please read the rules below:
         </p>
-        <div class="postInfo">
-          <p class="postDate">##/##/##</p>
-          <button class="dropDownButton">v</button>
+        <div class="homeButtons">
+          <a href="html/rules.html" class="rules">Read the rules</a>
+          <a href="html/profiles.html" class="profile">Create a profile</a>
+          <a href="html/post.html" class="posts">Start posting</a>
+          <a href="html/about.html" class="about">Learn about the website</a>
         </div>
-      </div> <!-- End of Post -->
+          
       </div>
-
-
-      
+    </div>
   </main>
+
   <footer>
     <!-- New Post Button -->
     <a href="html/post.html" id="newPostButton">New Post</a>
     <nav>
-      <a href="../index.html" aria-current="page">Posts</a>
-      <a href="html/home.html">Home</a>
-      <a href="html/rules.html">Rules</a>
-      <a href="html/about.html">About</a>
-      <a href="html/profiles.html">Profile</a>
+      <a href="index.html" aria-current="page">Home</a>
+        <a href="html/feed.html">Feed</a>
+        <a href="html/post.html">Create Post</a>
+        <a href="html/rules.html">Rules</a>
+        <a href="html/about.html">About</a>
+        <a href="html/profiles.html">Profile</a>
     </nav>
   </footer>
-
-  <div id="navMenu">
-    <nav>
-      <a href="../index.html" aria-current="page">Posts</a>
-      <a href="html/home.html">Home</a>
-      <a href="html/rules.html">Rules</a>
-      <a href="html/about.html">About</a>
-      <a href="html/profiles.html">Profile</a>
-    </nav>
-  </div>
-  <script src="js/script-posts.js">
-  </script>
-
+  <!-- <script src="js/script-posts.js"></script> -->
   <script src="js/script-navMenu.js"></script>
 </body>
-
 </html>
 
 
