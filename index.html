@@ -9,7 +9,7 @@
   <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-  <header>
+  <header class="topbar">
     <h1 class="websiteTitle">Moderated City Forum</h1>
     <button class="navButton" onclick="showNav()">☰</button>
     <nav>
@@ -34,27 +34,96 @@
   </div>
 
   <main>
-    <div class="mainContent"> 
-      <div>
-        <h1>Welcome!</h1>
-        <p>
-          This moderated city forum is to provide the city with a safe and professional way to communicate and connect with the community <br>
-          please read the rules below:
-        </p>
-        <div class="homeButtons">
-          <a href="html/rules.html" class="rules">Read the rules</a>
-          <a href="html/profiles.html" class="profile">Create a profile</a>
-          <a href="html/post.html" class="posts">Start posting</a>
-          <a href="html/about.html" class="about">Learn about the website</a>
-        </div>
-          
+    <!-- Banner/Welcome -->
+      <div class="banner">
+        <img src="assets/images/PhotoofBodyofWaterAcrossCitySkyline.jpg" alt="Photo of Body of Water Across City Skyline">
+        <h1>Welcome! <br> Connect with your communitites in a professional and positive way!</h1>
+        <label>Image: By timelockz, pexels.com, <a href="https://images.pexels.com/photos/4367629/pexels-photo-4367629.jpeg">https://images.pexels.com/photos/4367629/pexels-photo-4367629.jpeg</a> , free to use under Pexel license</label>
       </div>
+      
+    <!-- Banner/Welcome -->
+
+    <!-- <div class="left"></div> -->
+    <div class="content">
+      <section>
+        <h3>Community Guidelines (Overview):</h3>
+        <p>To keep our platfrom a safe place keep all posts:</p>
+        <ul>
+          <li>Professional</li>
+          <li>Positive or Neutral</li>
+          <li>Constructive criticism</li>
+          <li>Informational</li>
+        </ul>
+        <h5>Posting:</h5>
+        <p>After submitting a post you will be prompted to change any restricted and potentially restricted language (language that is too negative depending on context).</p>
+        <ul>
+          <li>Completely restricted words or phrases will be highlighted with red: <span class="banned">restricted</span></li>
+          <li>Potentially restricted words or phrases will be highlighted with orange: <span class="unrecommended">restricted</span></li>
+        </ul>
+
+        <p>
+          Many people tend to say a lot more hurtful things on the internet than real life, these posting recommendations and guidelines are to keep things civil so we can all safely and respectfully communicate with our communities.
+          <br>
+          Please always be mindful about your posts, take a couple minutes before posting and reread your words.
+        </p>
+        <div class="leftContent">
+          <button class="acceptRules">I understand</button>
+        </div>
+      </section>
+
+      <section>
+        <h1>Create a Profile</h1>
+        <form id="profileForm">
+          <div class="name">
+            <h2>Who are you?</h2>
+            <label for="firstName">First name</label>
+            <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
+
+            <label for="lasttName">Last name</label>
+            <input type="text" id="lasttName" name="lasttName" placeholder="Last Name" required>
+          </div>
+
+          <div class="image">
+            <img src="assets/images/Untitled design (1).png" height="100px">
+          </div>
+          <div class="location">
+            <h2>Where are you?</h2>
+            <label for="city" >City</label>
+            <input type="text" id="city" name="city" placeholder="City" required>
+            <label for="country">Country</label>
+            <select id="country" name="country" aria-placeholder="Country" required>
+              <option value="USA">USA</option>
+              <option value="Canada">Canada</option>
+              <option value="Mexico">Mexico</option>
+            </select>
+
+            <label for="county">County</label>
+            <input type="text" id="county" name="county" placeholder="County" required>
+            <label for="zip">Zip</label>
+            <input type="text" id="zip" name="zip" placeholder="zip" required>
+
+            <label for="state">State</label>
+            <select id="state" name="state" aria-placeholder="state" required>
+              <option value="WA">WA</option>
+              <option value="CA">CA</option>
+              <option value="OR">OR</option>
+            </select>
+          </div>
+
+        </form>
+      </section>
     </div>
+    <!-- <div class="right"></div> -->
+<!--     
+    
+    <label for=""></label>
+          <input type="" id="" name="" placeholder="" required> -->
+    
   </main>
 
   <footer>
-    <!-- New Post Button -->
-    <a href="html/post.html" id="newPostButton">New Post</a>
+    <!-- New Post Button
+    <a href="html/post.html" id="newPostButton">New Post</a> -->
     <nav>
       <a href="index.html" aria-current="page">Home</a>
         <a href="html/feed.html">Feed</a>
