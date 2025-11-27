@@ -34,16 +34,16 @@
   </div>
 
   <main>
-    <div class="mainContent">
+    <form name="postForm" class="mainContent">
       <label>
-        <input type="text" id="title" placeholder="Post Title" class="postTitle" required>
+        <input type="text" id="title" name="title" placeholder="Post Title" class="postTitle" required>
       </label>
       <label>
         <textarea rows="5" cols="50" id="content" placeholder="Type your post here..." class="postContent" required></textarea>
       </label>
     </div>
-
-    <button id="createPost" onclick="addToList(), document.location='confirmation.html'">Submit Post</button>
+    <button id="createPost" onclick="readDraft(), action='confirmation.html'">Submit Post</button>
+    <!-- <button id="createPost" onclick="addToList(), document.location=''">Submit Post</button> -->
   </main>
   <footer>
     <nav>
@@ -55,7 +55,9 @@
       <a href="profiles.html">Profile</a>
     </nav>
   </footer>
-  <script src="../js/script-create.js"></script>
+  <!-- <script src="../js/script-create.js"></script> -->
+
+  <script src="../js/post.js"></script>
   <script src="../js/script-navMenu.js"></script>
 </body>
 </html>
