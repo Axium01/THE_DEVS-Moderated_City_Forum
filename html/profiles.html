@@ -39,42 +39,61 @@
       <!-- Profile editor / display -->
 
       <!-- Profile form: shown when the user needs to create or edit their profile -->
-      <form>
-        <label>
-          Full name
-          <input type="text" id="pf_name" name="name" placeholder="Your full name">
-        </label>
-        <label>
-          Role / Title
-          <input type="text" id="pf_role" name="role" placeholder="Community Member · City">
-        </label>
-        <label>
-          Neighborhood
-          <input type="text" id="pf_neighborhood" name="neighborhood" placeholder="e.g. Downtown">
-        </label>
-        <label>
-          Short bio
-          <textarea id="pf_bio" name="bio" rows="3" placeholder="A short description about you"></textarea>
-        </label>
-        <div style="margin-top:8px;">
-          <button type="submit">Save profile</button>
-          <button type="button" id="pf_cancel">Cancel</button>
-        </div>
-      </form>
+      <form  name="profileForm" id="profilePageForm">
+          <div class="name" class="formDiv">
+            <label for="firstName">First name</label>
+            <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
+
+            <label for="lastName">Last name</label>
+            <input type="text" id="lastName" name="lastName" placeholder="Last Name">
+          </div>
+
+          <div class="location" class="formDiv">
+            <label for="city" >City</label>
+            <input type="text" id="city" name="city" placeholder="City" required>
+            <label for="country">Country</label>
+            <select id="country" name="country" aria-placeholder="Country" required>
+              <option value="USA">USA</option>
+              <option value="Canada">Canada</option>
+              <option value="Mexico">Mexico</option>
+            </select>
+
+            <label for="county">County</label>
+            <input type="text" id="county" name="county" placeholder="County" required>
+            <label for="zip">Zip</label>
+            <input type="text" id="zip" name="zip" placeholder="zip" required>
+
+            <label for="state">State</label>
+            <select id="state" name="state" aria-placeholder="state" required>
+              <option value="WA">WA</option>
+              <option value="CA">CA</option>
+              <option value="OR">OR</option>
+            </select>
+          </div>
+
+          <input type="reset" class="button">
+          <input type="submit" class="button" onclick="saveProfile()">
+          
+        </form>
 
       <!-- Profile Card: populated from saved profile data when present -->
       <section class="profileCard" id="profileCard">
-        <div class="profileAvatar">
+        <!-- <div class="profileAvatar">
           <div class="avatarCircle" id="pf_avatar">--</div>
-        </div>
+        </div> -->
 
         <div class="profileMain">
-          <h2 class="profileName" id="pf_name_display">Your name</h2>
-          <p class="profileRole" id="pf_role_display">Role · Neighborhood</p>
-          <p class="profileBio" id="pf_bio_display">Profile bio will appear here.</p>
+          <h2 class="firstName" id="firstNameP">Your name</h2>
+          <p class="lastName" id="lastNameP"></p>
+          <p class="city" id="cityP"></p>
+          <p class="county" id="countyP"></p>
+          <p class="state" id="stateP"></p>
+          <p class="country" id="countryP"></p>
+          <p class="zip" id="zipP"></p>
+          <!-- <p class="profileBio" id="pf_bio_display">Profile bio will appear here.</p> -->
         </div>
 
-        <dl class="profileStats" id="pf_stats">
+        <!-- <dl class="profileStats" id="pf_stats">
           <div>
             <dt>Posts</dt>
             <dd id="pf_posts">0</dd>
@@ -87,12 +106,12 @@
             <dt>Member Since</dt>
             <dd id="pf_memberSince">-</dd>
           </div>
-        </dl>
+        </dl> -->
       </section>
 
       <!-- Edit / Create controls -->
       <div style="margin:14px 0;">
-        <button id="pf_edit">Create / Edit Profile</button>
+        <button id="pf_edit" onclick="loadProfile()">Create / Edit Profile</button>
       </div>
     </div>
   </main>
@@ -107,6 +126,7 @@
       <a href="profiles.html" aria-current="page">Profile</a>
     </nav>
   </footer>
+  <script src="../js/profile.js"></script>
   <script src="../js/script-navMenu.js"></script>
 </body>
 </html>

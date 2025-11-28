@@ -45,6 +45,7 @@
 
     <!-- <div class="left"></div> -->
     <div class="content">
+      <div id="createProfile">
       <section>
         <h3>Community Guidelines (Overview):</h3>
         <p>To keep our platfrom a safe place keep all posts:</p>
@@ -66,27 +67,28 @@
           <br>
           Please always be mindful about your posts, take a couple minutes before posting and reread your words.
         </p>
-        <div class="leftContent">
+        <!-- <div class="leftContent">
           <button class="acceptRules">I understand</button>
-        </div>
+        </div> -->
       </section>
 
       <section>
         <h1>Create a Profile</h1>
-        <form id="profileForm">
-          <div class="name">
+        <form id="profileForm" name="profileForm">
+          <div class="name" class="formDiv">
             <h2>Who are you?</h2>
+
             <label for="firstName">First name</label>
             <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
 
-            <label for="lasttName">Last name</label>
-            <input type="text" id="lasttName" name="lasttName" placeholder="Last Name" required>
+            <label for="lastName">Last name</label>
+            <input type="text" id="lastName" name="lastName" placeholder="Last Name">
           </div>
 
-          <div class="image">
+          <div class="image" class="formDiv">
             <img src="assets/images/Untitled design (1).png" height="100px">
           </div>
-          <div class="location">
+          <div class="location" class="formDiv">
             <h2>Where are you?</h2>
             <label for="city" >City</label>
             <input type="text" id="city" name="city" placeholder="City" required>
@@ -110,7 +112,14 @@
             </select>
           </div>
 
+          <input type="reset" class="button">
+          <input type="submit" class="button" onclick="saveProfile()">
+          
         </form>
+      </section>
+      </div>
+      <section id="homepageContent">
+
       </section>
     </div>
     <!-- <div class="right"></div> -->
@@ -134,6 +143,7 @@
     </nav>
   </footer>
   <!-- <script src="js/script-posts.js"></script> -->
+  <script src="js/profile.js"></script>
   <script src="js/script-navMenu.js"></script>
 </body>
 </html>

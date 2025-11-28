@@ -152,7 +152,7 @@ footer {
   font-size:12px;
 }
 
-button {
+button, .button {
   font-size:16px;
   background:var(--accent);
   color:white;
@@ -244,7 +244,7 @@ header nav, header a {
   
 } */
 
-#profileForm {
+#profileForm, #profilePageForm {
   display: grid;
   grid-row: auto auto auto auto;
   grid-column: 25% 75%;
@@ -254,6 +254,17 @@ header nav, header a {
     'join join'
     'submit submit'
     ;
+}
+
+.formDiv {
+  border: 1px solid var(--bg);
+  background-color: var(--card);
+  border-radius: var(--radius);
+}
+
+.formLayout {
+  display: flex;
+  flex-direction: column;
 }
 
 #profileForm h2 {
