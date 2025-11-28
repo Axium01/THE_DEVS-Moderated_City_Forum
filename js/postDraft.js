@@ -12,10 +12,14 @@ function loadPastDraft() {
     document.forms["postForm"]["title"].value = draftPost["title"];
     document.forms["postForm"]["content"].value = draftPost["content"];
 
+    // Figure out v
+    // draftPost.area = document.forms["postForm"]["area"].value = draftPost["area"];
+    // draftPost.area = document.forms["postForm"]["type"].value = draftPost["type"];
+
     console.log("Load draft");
   }
   else {
-    draftPost = {title:"", content:""};
+    draftPost = {title:"", content:"", area:"", type:""};
     console.log("New draft");
   }
 }
@@ -32,8 +36,10 @@ function resetDraft() {
 
 // UNUSED Save draft button code
 function saveDraft() {
-  draftPost["title"] = document.forms["postForm"]["title"].value;
-  draftPost["content"] = document.forms["postForm"]["content"].value;
+  draftPost.title = document.forms["postForm"]["title"].value;
+  draftPost.content = document.forms["postForm"]["content"].value;
+  draftPost.area = document.forms["postForm"]["area"].value;
+  draftPost.area = document.forms["postForm"]["type"].value;
   console.log("Post title: " + draftPost.title);
 }
 
@@ -44,6 +50,10 @@ function readDraft()
   // Get text from the title and content input text and text area boxes
   draftPost.title = document.forms["postForm"]["title"].value;
   draftPost.content = document.forms["postForm"]["content"].value;
+  draftPost.area = document.forms["postForm"]["area"].value;
+  draftPost.area = document.forms["postForm"]["type"].value;
+
+
   // console.log("Post title: " + draftPost.title);
   // console.log(draftPost);
 

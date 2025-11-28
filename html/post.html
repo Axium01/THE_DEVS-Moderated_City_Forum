@@ -34,15 +34,40 @@
   </div>
 
   <main>
-    <form name="postForm" class="content">
+    <form name="postForm" id="postForm" class="content">
       <label>
         <input type="text" id="title" name="title" placeholder="Post Title" class="postTitle" required>
       </label>
+      <div>
+        <label for="pCity">City</label>
+        <input type="radio" id="pCity" name="area" value="city">
+        <label for="pCounty">County</label>
+        <input type="radio" id="pCounty" name="area" value="county">
+        <label for="pState">State</label>
+        <input type="radio" id="pState" name="area" value="state">
+        <label for="pCountry">Country</label>
+        <input type="radio" id="pCountry" name="area" value="country">
+      </div>
+      <div>
+        <label for="pQuestion">Question</label>
+        <input type="radio" id="pQuestion" name="type" value="question">
+        <label for="pNews">News</label>
+        <input type="radio" id="pNews" name="type" value="news">
+        <label for="pHelp">Visitor Question</label>
+        <input type="radio" id="pHelp" name="type" value="help">
+        <label for="pAd">Advertisement</label>
+        <input type="radio" id="pAd" name="type" value="ad">
+      </div>
+        
+
       <label>
         <textarea rows="5" cols="50" id="content" placeholder="Type your post here..." class="postContent" required></textarea>
       </label>
     </div>
-    <input type="submit">
+    <div class="flowRight">
+      <input type="submit">
+    </div>
+    
     <button id="createPost" onclick="readDraft(), action='confirmation.html'">Submit Post</button>
     <!-- <button id="createPost" onclick="addToList(), document.location=''">Submit Post</button> -->
   </main>
@@ -58,7 +83,7 @@
   </footer>
   <!-- <script src="../js/script-create.js"></script> -->
 
-  <script src="../js/post.js"></script>
+  <script src="../js/postDraft.js"></script>
   <script src="../js/script-navMenu.js"></script>
 </body>
 </html>

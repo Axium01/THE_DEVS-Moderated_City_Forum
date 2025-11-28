@@ -238,11 +238,16 @@ header nav, header a {
 
 
 /* Form */
-/* .flow {
+.flowLeft {
   display: flex;
   flex-direction: row;
-  
-} */
+  align-items: center;
+}
+.flowRight {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+}
 
 #profileForm, #profilePageForm {
   display: grid;
@@ -300,6 +305,7 @@ label {
   margin-right: 6px;
 }
 
+
 .name {grid-area: name;
 margin-bottom: 70px;}
 .image {grid-area: image;}
@@ -310,9 +316,26 @@ margin-bottom: 70px;}
 .join {grid-area: join;}
 .submit {grid-area: submit;}
 
+#postForm {
+  min-height: 700px;
+  max-height: fit-content;
+}
+
+.postTitle {
+  width: 90%;
+}
+
+.postContent {
+  width: 90%;
+  height: 100%;
+}
+
+
+
 footer a {
     padding: 10px;
 }
+
 
 #mainPostList {
   height:calc(100vh - 240px);
@@ -440,3 +463,19 @@ section {
     margin:0;
 }
 
+/* INDEX HOMEPAGE */
+#homepageContent {
+  display: grid;
+    grid-template-rows: 10% 50% 50%;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: 
+    'header header'
+    'questions news'
+    'help ads';
+  height: 1000px;
+}
+#homepageContent header {grid-area: header;}
+#questionsSection {grid-area: questions;}
+#newsSection {grid-area: news;}
+#helpSection {grid-area: help;}
+#adsSection {grid-area: ads;}
