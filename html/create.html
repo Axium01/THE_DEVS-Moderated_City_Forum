@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Create Post | City Web Forum</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="The Devs: Sam Getahun, Gabriella Kulondwa, Milo Wearn, Rick Carlin">
+  <meta name="description" content="">
+  <link href="../css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <header class="topbar">
+    <h1 class="websiteTitle">Moderated City Forum</h1>
+    <button class="navButton" onclick="showNav()">☰</button>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="feed.html">Feed</a>
+      <a href="create.html" aria-current="page">Create Post</a>
+      <a href="communityGuidelines.html">Community Guidelines</a>
+      <a href="about.html">About</a>
+      <a href="profile.html">Profile</a>
+    </nav>
+  </header>
+  <div id="navMenu">
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="feed.html">Feed</a>
+      <a href="create.html" aria-current="page">Create Post</a>
+      <a href="communityGuidelines.html">Community Guidelines</a>
+      <a href="about.html">About</a>
+      <a href="profile.html">Profile</a>
+    </nav>
+  </div>
+
+  <main>
+    <form name="postForm" id="postForm" class="content">
+      <label>
+        <input type="text" id="title" name="title" placeholder="Post Title" class="postTitle" required>
+      </label>
+      <div>
+        <label for="pCity">City</label>
+        <input type="radio" id="pCity" name="area" value="city">
+        <label for="pCounty">County</label>
+        <input type="radio" id="pCounty" name="area" value="county">
+        <label for="pState">State</label>
+        <input type="radio" id="pState" name="area" value="state">
+        <label for="pCountry">Country</label>
+        <input type="radio" id="pCountry" name="area" value="country">
+      </div>
+      <div>
+        <label for="postQuestion">Question</label>
+        <input type="radio" id="postQuestion" name="type" value="question">
+        <label for="postNews">News</label>
+        <input type="radio" id="postNews" name="type" value="news">
+        <label for="postHelp">Visitor Question</label>
+        <input type="radio" id="postHelp" name="type" value="help">
+        <label for="postAd">Advertisement</label>
+        <input type="radio" id="postAd" name="type" value="ad">
+      </div>
+        
+
+      <label>
+        <textarea rows="5" cols="50" id="content" placeholder="Type your post here..." class="postContent" required></textarea>
+      </label>
+    </div>
+    <div class="flowRight">
+      <input type="submit">
+    </div>
+    
+    <button id="createPost" onclick="readDraft(), action='confirmation.html'">Process Post</button>
+    <!-- <button id="createPost" onclick="addToList(), document.location=''">Submit Post</button> -->
+  </main>
+  <footer>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="feed.html">Feed</a>
+      <a href="create.html" aria-current="page">Create Post</a>
+      <a href="communityGuidelines.html">Community Guidelines</a>
+      <a href="about.html">About</a>
+      <a href="profile.html">Profile</a>
+    </nav>
+  </footer>
+  <!-- <script src="../js/script-create.js"></script> -->
+
+  <script src="../js/script-draft.js"></script>
+  <script src="../js/script-navMenu.js"></script>
+</body>
+</html>
