@@ -18,6 +18,15 @@ const KEY = 'postKey';
 
     //document.getElementById('deletePost').addEventListener('click', deletePost);
 
+    function selectPost(id) {
+      document.cookie = "post=" + id + ";path=/";
+      console.log(document.cookie);
+
+      if (document.cookie != null) {
+        window.location.href = "post.html"; // Redirect user to the post page
+      }
+    }
+
     function render() {
       const postContainer = document.getElementById('mainPostList');
       const posts = readPost(); // grab post contents
@@ -38,7 +47,7 @@ const KEY = 'postKey';
 
         html += `
         <div class="postBody">
-        	<a href="" class="postTitle">${item.title}</a>
+        	<button role="link" class="postTitle" onclick="selectPost(${item.id})">${item.title}</button>
           <p class"postInfo">${item.user}  ${location}  ${item.type}</p>
           <p class="postContent">${item.content}</p>
           <p class="postDate">${item.date}</p>
