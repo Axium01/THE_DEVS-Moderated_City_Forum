@@ -19,7 +19,7 @@ function loadPastDraft() {
     console.log("Load draft");
   }
   else {
-    draftPost = {title:"", content:"", area:"", type:""};
+    draftPost = {title:"", content:"", area:"", areaName:"", type:"", user:""};
     console.log("New draft");
   }
 }
@@ -39,7 +39,7 @@ function saveDraft() {
   draftPost.title = document.forms["postForm"]["title"].value;
   draftPost.content = document.forms["postForm"]["content"].value;
   draftPost.area = document.forms["postForm"]["area"].value;
-  draftPost.area = document.forms["postForm"]["type"].value;
+  draftPost.type = document.forms["postForm"]["type"].value;
   console.log("Post title: " + draftPost.title);
 }
 
@@ -50,9 +50,15 @@ function readDraft()
   // Get text from the title and content input text and text area boxes
   draftPost.title = document.forms["postForm"]["title"].value;
   draftPost.content = document.forms["postForm"]["content"].value;
+  draftPost.type = document.forms["postForm"]["type"].value;
   draftPost.area = document.forms["postForm"]["area"].value;
-  draftPost.area = document.forms["postForm"]["type"].value;
+  
+  let tempArea = document.forms["postForm"]["area"].value;
+  let profile = JSON.parse(localStorage.getItem('profile'));
+  draftPost.areaName = profile[tempArea];
+  draftPost.user = profile.firstName;
 
+  console.log("Posts location is: " + draftPost.areaName);
 
   // console.log("Post title: " + draftPost.title);
   // console.log(draftPost);

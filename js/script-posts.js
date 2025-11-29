@@ -27,12 +27,22 @@ const KEY = 'postKey';
 
       // POST ITEM DISPLAY //
       posts.forEach((item, i) => {
+        const profile = JSON.parse(localStorage.getItem('profile'));
+        let location = "";
+        if (item.areaName == profile[item.area]) {
+          location = item.area
+        }
+        else {
+          location = item.areaName + " " + item.area;
+        }
+
         html += `
         <div class="postBody">
-        	<h1 class="postTitle">${item.title}</h1>
-            <p class="postContent">${item.content}</p>
-                <p class="postDate">${item.date}</p>
-                <button class="delete" onclick="removePost(${item.id})">x</button>
+        	<a href="" class="postTitle">${item.title}</a>
+          <p class"postInfo">${item.user}  ${location}  ${item.type}</p>
+          <p class="postContent">${item.content}</p>
+          <p class="postDate">${item.date}</p>
+          <button class="delete" onclick="removePost(${item.id})">x</button>
         </div>`;
 
         
