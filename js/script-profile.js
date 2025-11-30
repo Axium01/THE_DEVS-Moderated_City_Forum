@@ -37,6 +37,21 @@ function saveProfile()
   localStorage.setItem('profile', JSON.stringify(profile)); // Save profile by turning into string/JSON
 }
 
+
+function showProfile() {
+  document.getElementById("profileForm").style.display = "none";
+  document.getElementById("profileCard").style.display = "grid";
+  
+  console.log(profile);
+
+  document.getElementById("nameP").innerHTML = "" + profile['firstName'] + " " + profile.lastName;
+  document.getElementById("cityP").innerHTML = "" + profile.city + " City,";
+  document.getElementById("countyP").innerHTML = "" + profile.county  + " County,";
+  document.getElementById("stateP").innerHTML = "" + profile.state + ",";
+  document.getElementById("countryP").innerHTML = "" + profile.country + ",";
+  document.getElementById("zipP").innerHTML = "" + profile.zip;
+}
+
 // Check to see if it is a new user, and if they are on the homepage or profile page
 function checkPage() {
   if (window.location.pathname == "/index.html") {
@@ -60,20 +75,6 @@ function checkPage() {
     }
     console.log(window.location.pathname);
   }
-}
-
-function showProfile() {
-  document.getElementById("profileForm").style.display = "none";
-  document.getElementById("profileCard").style.display = "grid";
-  
-  console.log(profile);
-
-  document.getElementById("nameP").innerHTML = "" + profile['firstName'] + " " + profile.lastName;
-  document.getElementById("cityP").innerHTML = "" + profile.city + " City,";
-  document.getElementById("countyP").innerHTML = "" + profile.county  + " County,";
-  document.getElementById("stateP").innerHTML = "" + profile.state + ",";
-  document.getElementById("countryP").innerHTML = "" + profile.country + ",";
-  document.getElementById("zipP").innerHTML = "" + profile.zip;
 }
 
 
