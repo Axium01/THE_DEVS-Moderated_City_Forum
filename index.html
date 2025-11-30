@@ -23,14 +23,14 @@
   </header>
 
   <div id="navMenu">
-      <nav>
-        <a href="index.html" aria-current="page">Home</a>
-        <a href="html/feed.html">Feed</a>
-        <a href="html/create.html">Create Post</a>
-        <a href="html/communityGuidelines.html">Community Guidelines</a>
-        <a href="html/about.html">About</a>
-        <a href="html/profile.html">Profile</a>
-      </nav>
+    <nav>
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="html/feed.html">Feed</a>
+      <a href="html/create.html">Create Post</a>
+      <a href="html/communityGuidelines.html">Community Guidelines</a>
+      <a href="html/about.html">About</a>
+      <a href="html/profile.html">Profile</a>
+    </nav>
   </div>
 
   <main>
@@ -42,86 +42,86 @@
       </div>
       
     <!-- Banner/Welcome -->
-
+      
     <!-- <div class="left"></div> -->
     <div class="content">
-      <div id="createProfile">
-      <section>
-        <h3>Community Guidelines (Overview):</h3>
-        <p>To keep our platfrom a safe place keep all posts:</p>
-        <ul>
-          <li>Professional</li>
-          <li>Positive or Neutral</li>
-          <li>Constructive criticism</li>
-          <li>Informational</li>
-        </ul>
-        <h5>Posting:</h5>
-        <p>After submitting a post you will be prompted to change any restricted and potentially restricted language (language that is too negative depending on context).</p>
-        <ul>
-          <li>Completely restricted words or phrases will be highlighted with red: <span class="banned">restricted</span></li>
-          <li>Potentially restricted words or phrases will be highlighted with orange: <span class="unrecommended">restricted</span></li>
-        </ul>
+      <div id="createProfile"> <!-- New user info -->
+        <section>
+          <h3>Community Guidelines (Overview):</h3>
+          <p>To keep our platfrom a safe place keep all posts:</p>
+          <ul>
+            <li>Professional</li>
+            <li>Positive or Neutral</li>
+            <li>Constructive criticism</li>
+            <li>Informational</li>
+          </ul>
+          <h5>Posting:</h5>
+          <p>
+            After submitting a post you will be prompted to change any restricted and potentially restricted language (language that is too negative depending on context).
+          </p>
+          <ul>
+            <li>Completely restricted words or phrases will be highlighted with red: <span class="banned">restricted</span></li>
+            <li>Potentially restricted words or phrases will be highlighted with orange: <span class="unrecommended">restricted</span></li>
+          </ul>
 
-        <p>
-          Many people tend to say a lot more hurtful things on the internet than real life, these posting recommendations and guidelines are to keep things civil so we can all safely and respectfully communicate with our communities.
-          <br>
-          Please always be mindful about your posts, take a couple minutes before posting and reread your words.
-        </p>
-        <!-- <div class="leftContent">
-          <button class="acceptRules">I understand</button>
-        </div> -->
-      </section>
+          <p>
+            Many people tend to say a lot more hurtful things on the internet than real life, these posting recommendations and guidelines are to keep things civil so we can all safely and respectfully communicate with our communities.
+            <br>
+            Please always be mindful about your posts, take a couple minutes before posting and reread your words.
+          </p>
+        </section>
 
-      <section>
-        <h1>Create a Profile</h1>
-        <form id="profileForm" name="profileForm">
-          <div class="name" class="formDiv">
-            <h2>Who are you?</h2>
+        <section> <!-- Create profile section -->
+          <h1>Create a Profile</h1>
+          <form id="idexProfileForm" name="idexProfileForm"> <!-- Create profile form -->
+            <div class="name" class="formDiv">
+              <h2>Who are you?</h2>
 
-            <label for="firstName">First name</label>
-            <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
+              <label for="firstName">First name</label>
+              <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
 
-            <label for="lastName">Last name</label>
-            <input type="text" id="lastName" name="lastName" placeholder="Last Name">
-          </div>
+              <label for="lastName">Last name</label>
+              <input type="text" id="lastName" name="lastName" placeholder="Last Name">
+            </div>
 
-          <div class="image" class="formDiv">
-            <img src="assets/images/Untitled design (1).png" height="100px">
-          </div>
-          <div class="location" class="formDiv">
-            <h2>Where are you?</h2>
-            <label for="city" >City</label>
-            <input type="text" id="city" name="city" placeholder="City" required>
-            <label for="country">Country</label>
-            <select id="country" name="country" aria-placeholder="Country" required>
-              <option value="USA">USA</option>
-              <option value="Canada">Canada</option>
-              <option value="Mexico">Mexico</option>
-            </select>
+            <div class="image" class="formDiv">
+              <img src="assets/images/Untitled design (1).png" height="100px">
+            </div>
 
-            <label for="county">County</label>
-            <input type="text" id="county" name="county" placeholder="County" required>
-            <label for="zip">Zip</label>
-            <input type="text" id="zip" name="zip" placeholder="zip" required>
+            <div class="location" class="formDiv">
+              <h2>Where are you?</h2>
+              <label for="city" >City</label>
+              <input type="text" id="city" name="city" placeholder="City" required>
+              <label for="country">Country</label>
+              <select id="country" name="country" aria-placeholder="Country" required>
+                <option value="USA">USA</option>
+                <option value="Canada">Canada</option>
+                <option value="Mexico">Mexico</option>
+              </select>
 
-            <label for="state">State</label>
-            <select id="state" name="state" aria-placeholder="state" required>
-              <option value="WA">WA</option>
-              <option value="CA">CA</option>
-              <option value="OR">OR</option>
-            </select>
-          </div>
+              <label for="county">County</label>
+              <input type="text" id="county" name="county" placeholder="County" required>
+              <label for="zip">Zip</label>
+              <input type="text" id="zip" name="zip" placeholder="zip" required>
 
-          <input type="reset" class="button">
-          <input type="submit" class="button" onclick="saveProfile()">
-          
-        </form>
-      </section>
-      </div>
-      <section id="homepageContent">
+              <label for="state">State</label>
+              <select id="state" name="state" aria-placeholder="state" required>
+                <option value="WA">WA</option>
+                <option value="CA">CA</option>
+                <option value="OR">OR</option>
+              </select>
+            </div>
+
+            <input type="reset" class="button">
+            <input type="submit" class="button" onclick="saveProfile()">
+            
+          </form> <!-- Create profile form -->
+        </section> <!-- Create profile section -->
+      </div><!-- New user info -->
+      <section id="homepageContent"> <!-- Homepage -->
         <header class="flowLeft">
           <h1>My Community:</h1>
-          <form class="filterButtons">
+          <form class="flowRight">
             <label for="city">City</label>
             <input type="checkbox" id="hpCity" name="city" value="city">
             <label for="county">County</label>
@@ -154,24 +154,16 @@
         
       </section>
     </div>
-    <!-- <div class="right"></div> -->
-<!--     
-    
-    <label for=""></label>
-          <input type="" id="" name="" placeholder="" required> -->
-    
   </main>
 
   <footer>
-    <!-- New Post Button
-    <a href="html/post.html" id="newPostButton">New Post</a> -->
     <nav>
       <a href="index.html" aria-current="page">Home</a>
-        <a href="html/feed.html">Feed</a>
-        <a href="html/create.html">Create Post</a>
-        <a href="html/communityGuidelines.html">Community Guidelines</a>
-        <a href="html/about.html">About</a>
-        <a href="html/profile.html">Profile</a>
+      <a href="html/feed.html">Feed</a>
+      <a href="html/create.html">Create Post</a>
+      <a href="html/communityGuidelines.html">Community Guidelines</a>
+      <a href="html/about.html">About</a>
+      <a href="html/profile.html">Profile</a>
     </nav>
   </footer>
   <!-- <script src="js/script-posts.js"></script> -->

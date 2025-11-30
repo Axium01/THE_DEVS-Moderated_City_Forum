@@ -38,6 +38,7 @@
       <label>
         <input type="text" id="title" name="title" placeholder="Post Title" class="postTitle" required>
       </label>
+      
       <div>
         <label for="pCity">City</label>
         <input type="radio" id="pCity" name="area" value="city">
@@ -48,6 +49,7 @@
         <label for="pCountry">Country</label>
         <input type="radio" id="pCountry" name="area" value="country">
       </div>
+      
       <div>
         <label for="postQuestion">Question</label>
         <input type="radio" id="postQuestion" name="type" value="question">
@@ -61,15 +63,18 @@
         
 
       <label>
-        <textarea rows="5" cols="50" id="content" placeholder="Type your post here..." class="postContent" required></textarea>
+        <textarea rows="20" cols="75" id="content" placeholder="Type your post here..." class="postContent" required></textarea>
       </label>
     </div>
-    <div class="flowRight">
-      <input type="submit">
+    <div class="draftButtons">
+      <div class="leftSide">
+        <input type="reset" class="button">
+        <button>Save draft</button>
     </div>
-    
-    <button id="createPost" onclick="readDraft(), action='confirmation.html'">Process Post</button>
-    <!-- <button id="createPost" onclick="addToList(), document.location=''">Submit Post</button> -->
+      <div class="submit">
+        <button id="createPost" onclick="readDraft(), action='confirmation.html'">Process Post</button>
+      </div>
+    </div>
   </main>
   <footer>
     <nav>

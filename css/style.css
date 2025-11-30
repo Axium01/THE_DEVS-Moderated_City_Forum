@@ -4,6 +4,10 @@
     --accent: #2563eb;
     --muted: #6b7280;
     --border: #e6e9ee;
+    --mainTextDark: #0f1724;
+    --detailTextDark: #c7ceda;
+    --mainTextlight: #ffffff;
+    --detailTextlight: #c7ceda;
     --radius: 10px;
     --max-width: 1100px;
     --gap: 12px;
@@ -14,44 +18,71 @@
   /* border: 1px solid black; */
 }
 
+/***** Responsiveness *****/
 /* Big screens */
 @media screen and (max-width: 810px){
-    header  {
-        justify-content: space-between;
+  header  {
+    justify-content: space-between;
+    nav {
+      visibility: hidden;
+      display: none;
     }
-    header nav {
-        visibility: hidden;
-        display: none;
+    button {
+      visibility: visible;
+      font-weight: 700px;
     }
-
-    header button {
-        visibility: visible;
-        font-weight: 700px;
-    }
+  }
 }
 
 /* Small screens */
 @media screen and (min-width: 810px){
-    header {
-        justify-content: stretch;
+  header {
+    justify-content: stretch;
+    nav {
+      visibility: visible;
     }
-    header nav {
-        visibility: visible;
+    button {
+      visibility: hidden;
     }
-
-    header button {
-        visibility: hidden;
-    }
+  }
 }
 
-header button {
-  font-weight: 700px;
-  font-size: 2rem;
-  border: none;
-  background-color: transparent;
+#navMenu { /* Navigation (small screens) menu */
+  visibility: hidden;
+  margin: auto;
+  border: 1px solid #e6e9ee;
+  background: #eaeef7;
+  color: white;
+  position: fixed;
+
+  width: 200px;
+
+  top: 100px;
+  bottom: 0px;
+  right: 0%;
+
+  nav {
+    /* border: 1px solid red; */
+    height: 50%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    text-align:center;
+    
+    text-decoration: none;
+  }
+
+  a {
+    margin-top: 10px;
+    text-decoration: none;
+    color: black;
+    font-weight:700;
+  }
+
 }
 
 
+/********** All pages **********/
 body{
   margin:0;
   background:var(--bg);
@@ -70,9 +101,19 @@ body{
   ;
 }
 
-/* Grid areas*/
-/* .gridContainer */
+footer {
+  grid-area: footer;
+  color:var(--muted);
+  font-size: .9rem;
+  
+  text-align: center;
+  align-content: center;
+  a {padding: 10px;}
+}
+
 main {
+  color:#0f1724;
+  grid-area: body;
   display: grid;
   grid-template-rows: auto auto;
   grid-template-columns: 200px 1000px 200px;
@@ -93,34 +134,41 @@ main {
   position:sticky;
   top:0;
   z-index:30;
-}
-
-.banner {
-  grid-area: banner;
-  position: relative;
-  width: 100%;
-  margin: 0;
-  /* height: 200px; */
-}
-
-.banner h1 {
-  position:absolute;
-  top: 0%;
-  text-align: center;
-  width: 100%;
   
+  button {
+    font-weight: 700px;
+    font-size: 2rem;
+    border: none;
+    background-color: transparent;
+  }
+  nav, a {
+    color: black;
+    text-decoration: none;
+    font-weight:700;
+    padding-top: 50px;
+    padding-left: 20px;
+  }
+  h1 { 
+    font-size:2rem;
+    font-weight:800;
+    color: black;
+  }
+}
+  
+section {
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:14px;
+  margin:0;
+  /* display:flex;
+  flex-direction:column; */
+  gap:8px;
 
-  color: white;
-  background-color: rgba(0, 0, 0, 0.5);
+  display: grid;
 }
 
-.banner img {
-  width: 100%;
-  object-fit: contain;
-  border-radius: var(--radius);
-}
-
-.content {
+.content { /* body content container */
   grid-area: content;
   background:var(--card);
   border:1px solid var(--border);
@@ -129,27 +177,10 @@ main {
   max-width:var(--max-width);
   margin:0;
   padding:16px;
-  /* display:flex;
-  flex-direction:column; */
+  display:flex;
+  flex-direction:column;
   gap:var(--gap);
   overflow-y:auto;
-}
-
-.left {
-  grid-area: left;
-}
-
-.right {
-  grid-area: right;
-}
-
-footer {
-  grid-area: footer;
-  background:transparent;
-  padding:14px 20px;
-  text-align:center;
-  color:var(--muted);
-  font-size:12px;
 }
 
 button, .button {
@@ -170,74 +201,6 @@ button, .button {
   display: flex;
   justify-content: right;
 }
-
-.acceptRules {
-  /* height: 50px;
-  width: fit-content; */
-  /* position: relative; */
-  
-}
-
-/* Post content */
-.banned {
-  background-color: red;
-}
-
-.unrecommended {
-  background-color: orange;
-}
-
-#navMenu {
-    visibility: hidden;
-    margin: auto;
-    border: 1px solid #e6e9ee;
-    background: #eaeef7;
-    color: white;
-    position: fixed;
-
-    width: 200px;
-
-    top: 100px;
-    bottom: 0px;
-    right: 0%;
-}
-
-#navMenu nav {
-    /* border: 1px solid red; */
-    height: 50%;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    text-align:center;
-    
-    text-decoration: none;
-}
-
-#navMenu a {
-    margin-top: 10px;
-    text-decoration: none;
-    color: black;
-    font-weight:700;
-}
-
-
-header nav, header a {
-    color: black;
-    text-decoration: none;
-    font-weight:700;
-    padding-top: 50px;
-    padding-left: 20px;
-}
-
-#websiteTitle{
-    font-size:18px;
-    font-weight:700;
-    color:var(--accent);
-}
-
-
-
-/* Form */
 .flowLeft {
   display: flex;
   flex-direction: row;
@@ -249,7 +212,8 @@ header nav, header a {
   justify-content: right;
 }
 
-#profileForm, #profilePageForm {
+/********** index.html **********/
+#idexProfileForm { /* index.html profile form */
   display: grid;
   grid-row: auto auto auto auto;
   grid-column: 25% 75%;
@@ -259,6 +223,120 @@ header nav, header a {
     'join join'
     'submit submit'
     ;
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  input, select {
+    background-color: var(--border);
+    border: 1px solid var(--bg);
+    padding: 3px 10px;
+    font-size: 1.3rem;
+    width: 12%;
+  }
+
+  /* .name {
+  grid-area: name;
+  margin-bottom: 70px;
+  }
+  .image {grid-area: image;}
+  .location {
+    grid-area: location;
+    
+  }
+  .join {grid-area: join;}
+  .submit {grid-area: submit;} */
+}
+/* classes for the profile form on the homepage */
+.name {
+  grid-area: name;
+  margin-bottom: 70px;
+}
+.image {grid-area: image;}
+.location {
+  grid-area: location;
+  
+}
+.join {grid-area: join;}
+.submit {grid-area: submit;}
+
+/***** index.html homepage *****/
+#homepageContent { /* container */
+  display: grid;
+    grid-template-rows: 10% 50% 50%;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: 
+    'header header'
+    'questions news'
+    'help ads';
+  height: 1000px;
+  header {grid-area: header;}
+}
+#questionsSection {grid-area: questions;}
+#newsSection {grid-area: news;}
+#helpSection {grid-area: help;}
+#adsSection {grid-area: ads;}
+
+.banner {
+  grid-area: banner;
+  position: relative;
+  width: 100%;
+  margin: 0;
+  /* height: 200px; */
+
+  h1 {
+    position:absolute;
+    top: 0%;
+    text-align: center;
+    width: 100%;
+    
+
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  img {
+    width: 100%;
+    object-fit: contain;
+    border-radius: var(--radius);
+  }
+}
+
+/********** confirmation.html **********/
+/* .confirmButtons {
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+} */
+
+.banned {
+  background-color: red;
+}
+
+.unrecommended {
+  background-color: orange;
+}
+
+/********** Forms (general) **********/
+
+#profileForm { /* profile.html profile form */
+  display: grid;
+  grid-row: auto auto auto;
+  grid-column: 25% 75%;
+  grid-template-areas: 
+    'name'
+    'location'
+    'buttons'
+    ;
+}
+
+.buttons {
+  grid-area: buttons;
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
 }
 
 .formDiv {
@@ -272,30 +350,11 @@ header nav, header a {
   flex-direction: column;
 }
 
-#profileForm h2 {
-  font-size: 2rem;
-}
-
 input {
   background-color: var(--border);
   border: 1px solid var(--bg);
   padding: 3px 10px;
   font-size: 1.3rem;
-}
-
-textarea {
-  background-color: var(--border);
-  border: 1px solid var(--bg);
-  /* padding: 3px 10px; */
-  font-size: 1.3rem;
-}
-
-#profileForm input, #profileForm select {
-  background-color: var(--border);
-  border: 1px solid var(--bg);
-  padding: 3px 10px;
-  font-size: 1.3rem;
-  width: 12%;
 }
 
 label {
@@ -306,42 +365,40 @@ label {
 }
 
 
-.name {grid-area: name;
-margin-bottom: 70px;}
-.image {grid-area: image;}
-.location {
-  grid-area: location; 
-  /* margin-left: 10%; */
-}
-.join {grid-area: join;}
-.submit {grid-area: submit;}
-
-#postForm {
+/********** create.html **********/
+#postForm { /* create.html form to make posts */
   min-height: 700px;
   max-height: fit-content;
+
+  .postTitle {
+    width: 100%;
+  }
+
+  textarea {
+    background-color: var(--border);
+    border: 1px solid var(--bg);
+    /* padding: 3px 10px; */
+    font-size: 1.3rem;
+    min-height: 400px;
+  }
 }
 
-.postTitle {
-  width: 90%;
+.draftButtons, .confirmButtons {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-areas: 
+  'left . right';
 }
 
-.postContent {
-  width: 90%;
-  height: 100%;
+.leftSide {grid-area: left;}
+.submit {
+  grid-area: right;
+  justify-self: right;
 }
 
+/********** feed.html **********/
 
-
-footer a {
-    padding: 10px;
-}
-
-
-#mainPostList {
-  height:calc(100vh - 240px);
-}
-
-#mainPostList {
+#mainPostList { /* only on feed.html */
     background:var(--card);
     border:1px solid var(--border);
     border-radius:var(--radius);
@@ -349,133 +406,93 @@ footer a {
     max-width:var(--max-width);
     margin:0;
     padding:16px;
-    /* display:flex;
-    flex-direction:column; */
+    display:flex;
+    flex-direction:column;
     gap:var(--gap);
     overflow-y:auto;
+    height:calc(100vh - 240px);
 }
 
-/* Floating action button used for both new/create */
-#newPostButton, #createPost{
-    font-size:16px;
-    background:var(--accent);
-    color:white;
-    border:0;
-    border-radius:999px;
-    text-decoration:none;
-    position:fixed;
-    bottom:24px;
-    right:24px;
-    padding:12px 16px;
-    box-shadow:0 8px 24px rgba(37,99,235,0.18);
-    cursor:pointer;
+/* Feed.html*/
+#newPostButton {
+  font-size:16px;
+  background:var(--accent);
+  color:white;
+  border:0;
+  border-radius:999px;
+  text-decoration:none;
+  position:fixed;
+  bottom:24px;
+  right:24px;
+  padding:12px 16px;
+  box-shadow:0 8px 24px rgba(37,99,235,0.18);
+  cursor:pointer;
 }
 
-section {
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:8px;
-    padding:14px;
-    margin:0;
-    /* display:flex;
-    flex-direction:column; */
-    gap:8px;
+/********** posts (index.html, create.html, post.html **********/
 
-    display: grid;
-}
+.postBody {
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:14px;
+  margin:0;
+  /* display:flex;
+  flex-direction:column; */
+  gap:8px;
 
-/* Home page post */
-.postBody{
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:8px;
-    padding:14px;
-    margin:0;
-    /* display:flex;
-    flex-direction:column; */
-    gap:8px;
+  display: grid;
+  grid-template-rows: 50px 70px 40px;
+  grid-template-columns: 15fr 5fr;
+  grid-template-areas: 
+  'title info'
+  'postContent postContent'
+  'date .';
 
-    display: grid;
-    grid-template-rows: 40px minmax(60px, 70px) 40px;
-    grid-template-columns: auto 30px;
-    grid-template-areas: 
-    'title delete'
-    'postContent postContent'
-    'info expand';
-}
-
-.postTitle{
+  .title {
     grid-area: title;
     font-size:17px;
     font-weight:700;
     margin:0;
     color:#0b1220;
-}
+    box-shadow: none;
+    background-color: transparent;
+    border: none;
+    text-align: left;
+    width: 90%;
+  }
 
-.postContent{
+  .content {
     grid-area: postContent;
     font-size:15px;
     color:var(--muted);
     margin:0;
     white-space:pre-wrap;
-}
+    width: 90%;
+    font-size: 1rem;
+    height: 95px;
 
-.postDate {
+    overflow: hidden;
+  }
+
+  .info {
     grid-area: info;
-}
+  }
 
-.expand {
-    grid-area: expand;
+  .date {
+    grid-area: info;
+  }
 
-    border: none;
-    background-color: transparent;
-    font-size: 1.2rem;
-}
-
-.delete {
+  .delete {
     grid-area: delete;
-
+    color: black;
     border: none;
     background-color: transparent;
     font-size: 1.2rem;
+  }
 }
 
-
-.homeButtons {
-    display: grid;
-    grid-template-rows: 50% 50%;
-    grid-template-columns: 50% 50%;
-    grid-template-areas: 
-    'rules profile'
-    'posts about';
+/*********  **********/
+.profileMain p {
+  padding: 10px;
 }
-
-.homeButtons a {
-    text-decoration: none;
-    color: black;
-    text-align: center;
-    font-weight: 700;
-
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:8px;
-    padding:14px;
-    margin:0;
-}
-
-/* INDEX HOMEPAGE */
-#homepageContent {
-  display: grid;
-    grid-template-rows: 10% 50% 50%;
-    grid-template-columns: 50% 50%;
-    grid-template-areas: 
-    'header header'
-    'questions news'
-    'help ads';
-  height: 1000px;
-}
-#homepageContent header {grid-area: header;}
-#questionsSection {grid-area: questions;}
-#newsSection {grid-area: news;}
-#helpSection {grid-area: help;}
-#adsSection {grid-area: ads;}

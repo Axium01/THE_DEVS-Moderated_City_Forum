@@ -33,10 +33,9 @@
   </div>
 
   <main>
-    <section class="content">
-      <div class="confirmCard">
+    <div class="content">
         <h2>Post Submitted Successfully</h2>
-        <p class="confirmIntro">
+        <p>
           Thank you for sharing with your community. Here’s a summary of your post:
         </p>
 
@@ -47,14 +46,17 @@
           </div>
         </div>
 
-        <div class="confirmActions">
-          <a href="feed.html" class="btnPrimary">Back to Feed</a>
-          <a href="create.html" class="btnSecondary">Create Another Post</a>
-          <button id="createPost" onclick="addToList(), document.location=''">Submit Post</button>
-          <!-- <button onclick="confirmDraft()">Post</button> -->
+        <div class="flowLeft" style="justify-content:space-between;">
+          <div class="flowLeft">
+            <a href="feed.html" class="button">Back to Feed</a>
+            <a href="create.html" class="button">Create Another Post</a>
+          </div>
+          <div class="submit">
+            <button id="createPost" onclick="addToList(), document.location=''">Submit Post</button>
+          </div>
         </div>
-      </div>
-    </section>
+
+    </div>
   </main>
 
   <footer>

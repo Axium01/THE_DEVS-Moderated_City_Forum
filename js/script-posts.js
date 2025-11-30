@@ -47,10 +47,12 @@ const KEY = 'postKey';
 
         html += `
         <div class="postBody">
-        	<button role="link" class="postTitle" onclick="selectPost(${item.id})">${item.title}</button>
-          <p class"postInfo">${item.user}  ${location}  ${item.type}</p>
-          <p class="postContent">${item.content}</p>
-          <p class="postDate">${item.date}</p>
+          <div class="r1">
+            <button role="link" class="title" onclick="selectPost(${item.id})">${item.title}</button>
+            <p class"info">${item.user}  ${location}  ${item.type}</p>
+          </div>
+          <p class="content">${item.content}</p>
+          <p class="date">${item.date}</p>
           <button class="delete" onclick="removePost(${item.id})">x</button>
         </div>`;
 

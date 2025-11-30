@@ -11,8 +11,8 @@
 
 <body>
   <header class="topbar">
-    <h1 class="websiteTitle">Moderated City Forum</h1>
-    <button class="navButton" onclick="showNav()">☰</button>
+    <h1>Moderated City Forum</h1>
+    <button onclick="showNav()">☰</button>
     <nav>
       <a href="../index.html">Home</a>
       <a href="feed.html">Feed</a>
@@ -39,8 +39,8 @@
       <!-- Profile editor / display -->
 
       <!-- Profile form: shown when the user needs to create or edit their profile -->
-      <form  name="profileForm" id="profilePageForm">
-          <div class="name" class="formDiv">
+      <form  name="profileForm" id="profileForm">
+          <div class="name">
             <label for="firstName">First name</label>
             <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
 
@@ -48,20 +48,9 @@
             <input type="text" id="lastName" name="lastName" placeholder="Last Name">
           </div>
 
-          <div class="location" class="formDiv">
+          <div class="location">
             <label for="city" >City</label>
             <input type="text" id="city" name="city" placeholder="City" required>
-            <label for="country">Country</label>
-            <select id="country" name="country" aria-placeholder="Country" required>
-              <option value="USA">USA</option>
-              <option value="Canada">Canada</option>
-              <option value="Mexico">Mexico</option>
-            </select>
-
-            <label for="county">County</label>
-            <input type="text" id="county" name="county" placeholder="County" required>
-            <label for="zip">Zip</label>
-            <input type="text" id="zip" name="zip" placeholder="zip" required>
 
             <label for="state">State</label>
             <select id="state" name="state" aria-placeholder="state" required>
@@ -69,27 +58,38 @@
               <option value="CA">CA</option>
               <option value="OR">OR</option>
             </select>
+            <label for="country">Country</label>
+            <select id="country" name="country" aria-placeholder="Country" required>
+              <option value="USA">USA</option>
+              <option value="Canada">Canada</option>
+              <option value="Mexico">Mexico</option>
+            </select>
+            <br>
+            <label for="county">County</label>
+            <input type="text" id="county" name="county" placeholder="County" required>
+            <label for="zip">Zip</label>
+            <input type="text" id="zip" name="zip" placeholder="zip" required>
           </div>
-
-          <input type="reset" class="button">
-          <input type="submit" class="button" onclick="saveProfile()">
+          <div class="buttons">
+            <input type="reset" class="button">
+            <input type="submit" class="button" onclick="saveProfile()">
+          </div>
+          
           
         </form>
 
       <!-- Profile Card: populated from saved profile data when present -->
       <section class="profileCard" id="profileCard">
-        <!-- <div class="profileAvatar">
-          <div class="avatarCircle" id="pf_avatar">--</div>
-        </div> -->
-
         <div class="profileMain">
-          <h2 class="firstName" id="firstNameP">Your name</h2>
-          <p class="lastName" id="lastNameP"></p>
-          <p class="city" id="cityP"></p>
-          <p class="county" id="countyP"></p>
-          <p class="state" id="stateP"></p>
-          <p class="country" id="countryP"></p>
-          <p class="zip" id="zipP"></p>
+          <h2 class="firstName" id="nameP">Your name</h2>
+          <div class="flowLeft">
+            <p class="city" id="cityP"></p>
+            <p class="county" id="countyP"></p>
+            <p class="state" id="stateP"></p>
+            <p class="country" id="countryP"></p>
+            <p class="zip" id="zipP"></p>
+          </div>
+          
           <!-- <p class="profileBio" id="pf_bio_display">Profile bio will appear here.</p> -->
         </div>
 
