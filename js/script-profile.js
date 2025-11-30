@@ -1,4 +1,6 @@
 let profile = JSON.parse(localStorage.getItem('profile'));
+console.log("Script")
+checkPage();
 
 function loadProfile() {
   document.getElementById("profileForm").style.display = "grid";
@@ -79,4 +81,5 @@ function checkPage() {
 }
 
 
+checkPage();
 checkPage();
