@@ -5,7 +5,7 @@ let draftKey;
 // Check to see if user has an old saved draft
 function loadPastDraft() {
   draftPost = JSON.parse(localStorage.getItem('draftPost'));
-  if (draftPost != null || draftPost.title != "")
+  if (draftPost != null)
   {
     console.log(draftPost.title);
     draftPost = JSON.parse(localStorage.getItem('draftPost'));
@@ -24,15 +24,6 @@ function loadPastDraft() {
   }
 }
 
-// UNUSED Reset draft button Clear title and content !!! Add other buttons later!!!
-function resetDraft() {
-  document.forms["postForm"]["title"].value = "";
-  document.forms["postForm"]["content"].value = "";
-
-  console.log("Reset draft");
-
-  // Reset other buttons
-}
 
 // UNUSED Save draft button code
 function saveDraft() {
@@ -41,6 +32,8 @@ function saveDraft() {
   draftPost.area = document.forms["postForm"]["area"].value;
   draftPost.type = document.forms["postForm"]["type"].value;
   console.log("Post title: " + draftPost.title);
+
+  localStorage.setItem('draftPost', JSON.stringify(draftPost));
 }
 
 
