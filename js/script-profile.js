@@ -54,7 +54,7 @@ function showProfile() {
 
 // Check to see if it is a new user, and if they are on the homepage or profile page
 function checkPage() {
-  if (window.location.pathname == "/index.html") {
+  if (window.location.pathname == "index.html") {
     if (profile == null || profile.firstName == "") {
       document.getElementById("createProfile").style.display = "grid";
       document.getElementById("homepageContent").style.display = "none";
@@ -65,7 +65,7 @@ function checkPage() {
       document.getElementById("homepageContent").style.display = "grid";
     }
   }
-  else if (window.location.pathname == "/html/profile.html"){
+  else if (window.location.pathname == "../html/profile.html"){
     console.log(profile["firstName"]);
     if (profile != null) {
       showProfile();
