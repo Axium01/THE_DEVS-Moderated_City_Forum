@@ -10,8 +10,17 @@ const KEY = 'postKey';
     }
 
     function addToList() {
-      const title = document.getElementById("title").value;
-      const content = document.getElementById("content").value;
+      // const title = document.getElementById("title").value;
+      // const content = document.getElementById("content").value;
+      const draft = JSON.parse(localStorage.getItem('draftPost'));
+      const title = draft.title;
+      const content = draft.content;
+      const area = draft.area;
+      const areaName = draft.areaName;
+      const type = draft.type;
+      const user = draft.user;
+
+
       // date stuff //
       const today = new Date();
       const day = String(today.getDate()).padStart(2, '0');
@@ -23,7 +32,7 @@ const KEY = 'postKey';
       let post = readPost();
       const lastId = post.length > 0 ? Math.max(...post.map(item => item.id)) : 0;
       const id = lastId + 1;
-      post.push({id, title, content, date});
+      post.push({id, title, content, date, area, areaName, type, user});
       
       writePost(post);
     }

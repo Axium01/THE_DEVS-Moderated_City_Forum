@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Profile | Moderated City Forum</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="The Devs: Sam Getahun, Gabriella Kulondwa, Milo Wearn, Rick Carlin">
+  <meta name="description" content="User profile page for the Moderated City Forum.">
+  <link href="../css/style.css" rel="stylesheet" type="text/css">
+  </head>
+
+<body>
+  <header class="topbar">
+    <h1>Moderated City Forum</h1>
+    <button onclick="showNav()">☰</button>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="feed.html">Feed</a>
+      <a href="create.html">Create Post</a>
+      <a href="communityGuidelines.html">Community Guidelines</a>
+      <a href="about.html">About</a>
+      <a href="profile.html" aria-current="page">Profile</a>
+    </nav>
+  </header>
+  <div id="navMenu">
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="feed.html">Feed</a>
+      <a href="create.html">Create Post</a>
+      <a href="communityGuidelines.html">Community Guidelines</a>
+      <a href="about.html">About</a>
+      <a href="profile.html" aria-current="page">Profile</a>
+    </nav>
+  </div>
+
+
+  <main>
+    <div class="content">
+      <!-- Profile editor / display -->
+
+      <!-- Profile form: shown when the user needs to create or edit their profile -->
+      <form  name="profileForm" id="profileForm">
+          <div class="name">
+            <label for="firstName">First name</label>
+            <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
+
+            <label for="lastName">Last name</label>
+            <input type="text" id="lastName" name="lastName" placeholder="Last Name">
+          </div>
+
+          <div class="location">
+            <label for="city" >City</label>
+            <input type="text" id="city" name="city" placeholder="City" required>
+
+            <label for="state">State</label>
+            <select id="state" name="state" aria-placeholder="state" required>
+              <option value="WA">WA</option>
+              <option value="CA">CA</option>
+              <option value="OR">OR</option>
+            </select>
+            <label for="country">Country</label>
+            <select id="country" name="country" aria-placeholder="Country" required>
+              <option value="USA">USA</option>
+              <option value="Canada">Canada</option>
+              <option value="Mexico">Mexico</option>
+            </select>
+            <br>
+            <label for="county">County</label>
+            <input type="text" id="county" name="county" placeholder="County" required>
+            <label for="zip">Zip</label>
+            <input type="text" id="zip" name="zip" placeholder="zip" required>
+          </div>
+          <div class="buttons">
+            <input type="reset" class="button">
+            <input type="submit" class="button" onclick="saveProfile()">
+          </div>
+          
+          
+        </form>
+
+      <!-- Profile Card: populated from saved profile data when present -->
+      <section class="profileCard" id="profileCard">
+        <div class="profileMain">
+          <h2 class="firstName" id="nameP">Your name</h2>
+          <div class="flowLeft">
+            <p class="city" id="cityP"></p>
+            <p class="county" id="countyP"></p>
+            <p class="state" id="stateP"></p>
+            <p class="country" id="countryP"></p>
+            <p class="zip" id="zipP"></p>
+          </div>
+          
+          <!-- <p class="profileBio" id="pf_bio_display">Profile bio will appear here.</p> -->
+        </div>
+
+        <!-- <dl class="profileStats" id="pf_stats">
+          <div>
+            <dt>Posts</dt>
+            <dd id="pf_posts">0</dd>
+          </div>
+          <div>
+            <dt>Comments</dt>
+            <dd id="pf_comments">0</dd>
+          </div>
+          <div>
+            <dt>Member Since</dt>
+            <dd id="pf_memberSince">-</dd>
+          </div>
+        </dl> -->
+      </section>
+
+      <!-- Edit / Create controls -->
+      <div style="margin:14px 0;">
+        <button id="pf_edit" onclick="loadProfile()">Create / Edit Profile</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="feed.html">Feed</a>
+      <a href="create.html">Create Post</a>
+      <a href="communityGuidelines.html">Community Guidelines</a>
+      <a href="about.html">About</a>
+      <a href="profile.html" aria-current="page">Profile</a>
+    </nav>
+  </footer>
+  <script src="../js/script-profile.js"></script>
+  <script src="../js/script-navMenu.js"></script>
+</body>
+</html>
+

@@ -18,6 +18,15 @@ const KEY = 'postKey';
 
     //document.getElementById('deletePost').addEventListener('click', deletePost);
 
+    function selectPost(id) {
+      document.cookie = "post=" + id + ";path=/";
+      console.log(document.cookie);
+
+      if (document.cookie != null) {
+        window.location.href = "post.html"; // Redirect user to the post page
+      }
+    }
+
     function render() {
       const postContainer = document.getElementById('mainPostList');
       const posts = readPost(); // grab post contents
@@ -27,12 +36,24 @@ const KEY = 'postKey';
 
       // POST ITEM DISPLAY //
       posts.forEach((item, i) => {
+        const profile = JSON.parse(localStorage.getItem('profile'));
+        let location = "";
+        if (item.areaName == profile[item.area]) {
+          location = item.area
+        }
+        else {
+          location = item.areaName + " " + item.area;
+        }
+
         html += `
         <div class="postBody">
-        	<h1 class="postTitle">${item.title}</h1>
-            <p class="postContent">${item.content}</p>
-                <p class="postDate">${item.date}</p>
-                <button class="delete" onclick="removePost(${item.id})">x</button>
+          <div class="r1">
+            <button role="link" class="title" onclick="selectPost(${item.id})">${item.title}</button>
+            <p class"info">${item.user}  ${location}  ${item.type}</p>
+          </div>
+          <p class="content">${item.content}</p>
+          <p class="date">${item.date}</p>
+          <button class="delete" onclick="removePost(${item.id})">x</button>
         </div>`;
 
         
