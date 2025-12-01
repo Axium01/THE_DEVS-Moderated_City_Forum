@@ -68,7 +68,7 @@ function checkPage() {
       document.getElementById("homepageContent").style.display = "grid";
     }
   }
-  else if (window.location.pathname == "/THE_DEVS-Moderated_City_Forum/html/profile.html"){
+  else {
     console.log(profile["firstName"]);
     if (profile != null) {
       showProfile();
@@ -81,5 +81,4 @@ function checkPage() {
 }
 
 
-checkPage();
 checkPage();
