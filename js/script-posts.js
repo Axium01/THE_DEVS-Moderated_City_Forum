@@ -1,4 +1,6 @@
 const KEY = 'postKey';
+let filterAreaList = [];
+let filterTypeList = [];
 
 function readPost() {
   try { return JSON.parse(localStorage.getItem(KEY)) || []; }
@@ -36,9 +38,46 @@ function addComment(postId, text) {
   render();
 }
 
+// Post filteration
+function filterPost() {
+  console.log("Filtering Post");
+  filterAreaList = [];
+  if (document.forms["filters"]["hpCity"].checked == true) {
+    filterAreaList.push("city");
+  }
+  if (document.forms["filters"]["county"].checked == true) {
+    filterAreaList.push("county");
+  }
+  if (document.forms["filters"]["state"].checked == true) {
+    filterAreaList.push("state");
+  }
+  if (document.forms["filters"]["country"].checked == true) {
+    filterAreaList.push("country");
+  }
+
+  filterTypeList = [];
+  if (document.forms["filters"]["Question"].checked == true) {
+    filterTypeList.push("question");
+  }
+  if (document.forms["filters"]["News"].checked == true) {
+    filterTypeList.push("news");
+  }
+  if (document.forms["filters"]["Help"].checked == true) {
+    filterTypeList.push("help");
+  }
+  if (document.forms["filters"]["Ad"].checked == true) {
+    filterTypeList.push("ad");
+  }
+
+  // draftPost.area = document.forms["postForm"]["area"].value;
+  render();
+}
+
 function render() {
   const postContainer = document.getElementById('mainPostList');
   const posts = readPost();
+  
+
 
   let html = ``;
 
@@ -48,18 +87,7 @@ function render() {
 
     if (item.comments && item.comments.length > 0) {
       commentCount = item.comments.length;
-      // item.comments.forEach(c => {
-      //   commentsHTML += `
-      //     <div class="comment">
-      //       <p>${c.text}</p>
-      //       <span class="comment-date">${c.date}</span>
-      //     </div>
-      //   `;
-      // });
     }
-    // } else {
-    //   commentsHTML = `<p class="no-comments">No comments yet.</p>`;
-    // }
 
     const profile = JSON.parse(localStorage.getItem('profile'));
     let areaLocation = "";
@@ -70,7 +98,11 @@ function render() {
       areaLocation = item.areaName + " " + item.area;
     }
 
-    html += `
+    if (filterAreaList.includes(item.area) == true)
+    {
+      if (filterTypeList.includes(item.type) == true)
+      {
+        html += `
       <div class="postBody">
         <button role="link" class="postTitle" onclick="selectPost(${item.id})">${item.title}</button>
         <div class="postInfo"><p>${item.user}</p><p>${areaLocation}</p><p>${item.type}</p></div>
@@ -78,23 +110,10 @@ function render() {
         <p class="postDate">${item.date}    ${commentCount} Comments</p>
         <button class="postDelete" onclick="removePost(${item.id})">x</button>
       </div>
-`;
-      //   <div class="comments-section">
-      //     <h4>Comments</h4>
-
-      //     <div class="comments-list">
-      //       ${commentsHTML}
-      //     </div>
-
-      //     <form onsubmit="event.preventDefault(); submitComment(${item.id}, this)">
-      //       <input type="text" class="commentInput" placeholder="Write a comment..." required>
-      //       <button type="submit">Post</button>
-      //     </form>
-      //   </div>
-      // </div>
-    
+      `;
+      }
+    }
   });
-
   postContainer.innerHTML = html;
 }
 
@@ -104,4 +123,4 @@ function submitComment(postId, form) {
   input.value = "";
 }
 
-render();
+filterPost();

@@ -36,9 +36,12 @@
   <main class="index">
     <!-- Banner/Welcome -->
       <div class="banner">
-        <img src="assets/images/PhotoofBodyofWaterAcrossCitySkyline.jpg" alt="Photo of Body of Water Across City Skyline">
         <h1>Welcome! <br> Connect with your communitites in a professional and positive way!</h1>
         <label>Image: By timelockz, pexels.com, <a href="https://images.pexels.com/photos/4367629/pexels-photo-4367629.jpeg">https://images.pexels.com/photos/4367629/pexels-photo-4367629.jpeg</a> , free to use under Pexel license</label>
+        <div class="imgContainer">
+          <img src="assets/images/PhotoofBodyofWaterAcrossCitySkyline.jpg" alt="Photo of Body of Water Across City Skyline">
+          
+        </div>
       </div>
       
     <!-- Banner/Welcome -->
@@ -121,36 +124,44 @@
       <section id="homepageContent" class="content"> <!-- Homepage -->
         <header class="flowLeft">
           <h1>My Community:</h1>
-          <form class="flowRight">
+          <form class="flowRight" name="filters">
             <label for="city">City</label>
-            <input type="checkbox" id="hpCity" name="city" value="city">
+            <input type="checkbox" id="hpCity" name="city" value="city" onclick="filterPost()" checked>
             <label for="county">County</label>
-            <input type="checkbox" id="hpCounty" name="county" value="county">
+            <input type="checkbox" id="hpCounty" name="county" value="county" onclick="filterPost()" checked>
             <label for="state">State</label>
-            <input type="checkbox" id="hpState" name="state" value="state">
+            <input type="checkbox" id="hpState" name="state" value="state" onclick="filterPost()" checked>
             <label for="country">Country</label>
-            <input type="checkbox" id="hpCountry" name="country" value="country">
+            <input type="checkbox" id="hpCountry" name="country" value="country" onclick="filterPost()" checked>
           </form>
         </header>
-        <section id="questionsSection">
+        <section class="hompageSection">
           <h2>Questions</h2>
-
+          <section id="questionsSection">
+        
+          </section>
         </section>
 
-        <section id="newsSection">
+        <section class="hompageSection">
           <h2>News</h2>
+          <section id="newsSection">
+
+          </section>
           
         </section>
-
-        <section id="helpSection">
+        <section class="hompageSection">
           <h2>Help out</h2>
-          
+          <section id="helpSection">
+    
+          </section>
         </section>
-
-        <section id="adsSection">
+        
+        <section class="hompageSection">
           <h2>Ads</h2>
-          
+          <section id="adsSection">
+          </section>
         </section>
+        
         
       </section>
     </div>
@@ -167,6 +178,7 @@
     </nav>
   </footer>
   <!-- <script src="js/script-posts.js"></script> -->
+   <script src="js/script-indexFeed.js"></script>
   <script src="js/script-indexProfile.js"></script>
   <script src="js/script-navMenu.js"></script>
 </body>

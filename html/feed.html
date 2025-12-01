@@ -37,6 +37,46 @@
   <main>
     <div id="mainPostList" class="content">
     </div>
+    <div  class="filterContainer">
+      <form class="filters" id="filters">
+        <h2>Filters</h1>
+          <h3>Location</h3>
+        <div class="filterItem">
+          <input type="checkbox" id="hpCity" name="city" value="city" onclick="filterPost()" checked>
+          <label for="city">City</label>
+        </div>
+        <div class="filterItem">
+          <input type="checkbox" id="hpCounty" name="county" value="county" onclick="filterPost()" checked>
+          <label for="county">County</label>
+        </div>
+        <div class="filterItem">
+          <input type="checkbox" id="hpState" name="state" value="state" onclick="filterPost()" checked>
+          <label for="state">State</label>
+        </div>
+        <div class="filterItem">
+          <input type="checkbox" id="hpCountry" name="country" value="country" onclick="filterPost()" checked>
+          <label for="country">Country</label>
+        </div>
+
+        <h3>Type</h3>
+        <div class="filterItem">
+          <input type="checkbox" id="Question" name="Question" value="question" onclick="filterPost()" checked>
+          <label for="Question">Question</label>
+        </div>
+        <div class="filterItem">
+          <input type="checkbox" id="News" name="News" value="news" onclick="filterPost()" checked>
+          <label for="News">News</label>
+        </div>
+        <div class="filterItem">
+          <input type="checkbox" id="Help" name="Help" value="help" onclick="filterPost()" checked>
+          <label for="Help">Visitor Question</label>
+        </div>
+        <div class="filterItem">
+          <input type="checkbox" id="Ad" name="Ad" value="ad" onclick="filterPost()" checked>
+          <label for="Ad">Advertisement</label>
+        </div>
+      </form>
+    </div>
 
   </main>
   <footer>

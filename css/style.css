@@ -279,18 +279,29 @@ button, .button {
   height: 900px;
   header {grid-area: header;}
   overflow-y: visible;
+  
+}
+.hompageSection {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 2px;
 }
 #questionsSection {
   grid-area: questions;
+  overflow-y: scroll;
 }
 #newsSection {
   grid-area: news;
+  overflow-y: scroll;
 }
 #helpSection {
   grid-area: help;
+  overflow-y: scroll;
 }
 #adsSection {
   grid-area: ads;
+  overflow-y: scroll;
 }
 
 .banner {
@@ -471,6 +482,41 @@ label {
   cursor:pointer;
 }
 
+.filterContainer {
+  position: fixed;
+  right: 10px;
+  top: 100px;
+  grid-area: content;
+  grid-row-start: 2;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  width:fit-content;
+  margin: 20px;
+  padding:16px;
+  display:flex;
+  flex-direction:column;
+  gap:var(--gap);
+  overflow-y:auto;
+}
+
+/* Filters */
+.filters {
+
+border: 1px solid red;
+
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  h2 {
+    margin-top: 0;
+  }
+  label {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+}
+
 /********** posts (index.html, create.html, post.html **********/
 
 .postBody {
@@ -485,7 +531,7 @@ label {
 
   display: grid;
   grid-template-rows: 50px auto 50px;
-  grid-template-columns: 15fr 5fr;
+  grid-template-columns: 10fr 10fr;
   align-items: center;
 
   .postTitle {
@@ -512,8 +558,7 @@ label {
     white-space:pre-wrap;
     width: 100%;
     font-size: 1rem;
-    height: 95px;
-
+    height: 45px;
     overflow: hidden;
   }
 
@@ -536,8 +581,11 @@ label {
     grid-column: 2 / 2;
     font-weight:700;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: right;
     color:var(--muted);
+    p {
+      margin-right: 10px;
+    }
   }
 
   .postDate {
