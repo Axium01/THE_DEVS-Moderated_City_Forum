@@ -3,17 +3,17 @@ console.log("Script");
 checkPage();
 
 function loadProfile() {
-  document.getElementById("profileForm").style.display = "grid";
+  document.getElementById("idexProfileForm").style.display = "grid";
   document.getElementById("profileCard").style.display = "none";
   if (JSON.parse(localStorage.getItem('profile')) != null)
   {
-    document.forms["profileForm"]["firstName"].value = profile.firstName;
-    document.forms["profileForm"]["lastName"].value = profile.lastName;
-    document.forms["profileForm"]["city"].value = profile.city;
-    document.forms["profileForm"]["country"].value = profile.country;
-    document.forms["profileForm"]["county"].value = profile.county;
-    document.forms["profileForm"]["zip"].value = profile.zip;
-    document.forms["profileForm"]["state"].value = profile.state;
+    document.forms["idexProfileForm"]["firstName"].value = profile.firstName;
+    document.forms["idexProfileForm"]["lastName"].value = profile.lastName;
+    document.forms["idexProfileForm"]["city"].value = profile.city;
+    document.forms["idexProfileForm"]["country"].value = profile.country;
+    document.forms["idexProfileForm"]["county"].value = profile.county;
+    document.forms["idexProfileForm"]["zip"].value = profile.zip;
+    document.forms["idexProfileForm"]["state"].value = profile.state;
     console.log("Load profile");
   }
   else {
@@ -25,13 +25,13 @@ function loadProfile() {
 function saveProfile()
 {
   // Get values from input elements
-  profile.firstName = document.forms["profileForm"]["firstName"].value;
-  profile.lastName = document.forms["profileForm"]["lastName"].value;
-  profile.city = document.forms["profileForm"]["city"].value;
-  profile.country = document.forms["profileForm"]["country"].value;
-  profile.county = document.forms["profileForm"]["county"].value;
-  profile.zip = document.forms["profileForm"]["zip"].value;
-  profile.state = document.forms["profileForm"]["state"].value;
+  profile.firstName = document.forms["idexProfileForm"]["firstName"].value;
+  profile.lastName = document.forms["idexProfileForm"]["lastName"].value;
+  profile.city = document.forms["idexProfileForm"]["city"].value;
+  profile.country = document.forms["idexProfileForm"]["country"].value;
+  profile.county = document.forms["idexProfileForm"]["county"].value;
+  profile.zip = document.forms["idexProfileForm"]["zip"].value;
+  profile.state = document.forms["idexProfileForm"]["state"].value;
   console.log(profile);
 
   // let profile = JSON.parse(localStorage.getItem('profile')); // turn into object
@@ -41,7 +41,7 @@ function saveProfile()
 
 
 function showProfile() {
-  document.getElementById("profileForm").style.display = "none";
+  document.getElementById("idexProfileForm").style.display = "none";
   document.getElementById("profileCard").style.display = "grid";
   
   console.log(profile);
