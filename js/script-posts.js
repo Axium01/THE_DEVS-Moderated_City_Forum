@@ -1,67 +1,100 @@
 const KEY = 'postKey';
 
-    function readPost() {
-      try { return JSON.parse(localStorage.getItem(KEY)) || []; }
-      catch { return []; }
-    }
+function readPost() {
+  try { return JSON.parse(localStorage.getItem(KEY)) || []; }
+  catch { return []; }
+}
 
-    function writePost(post) {
-      localStorage.setItem(KEY, JSON.stringify(post));
-    }
-	
-	function removePost(id) {
-      let post = readPost();
-      post = post.filter(item => item.id !== id);
-      writePost(post);
-      render(); // rerender so that it actually changes graphically
-    }
+function writePost(post) {
+  localStorage.setItem(KEY, JSON.stringify(post));
+}
 
-    //document.getElementById('deletePost').addEventListener('click', deletePost);
+function removePost(id) {
+  let post = readPost();
+  post = post.filter(item => item.id !== id);
+  writePost(post);
+  render();
+}
 
-    function selectPost(id) {
-      document.cookie = "post=" + id + ";path=/";
-      console.log(document.cookie);
+function selectPost(id) {
+  document.cookie = "post=" + id + ";path=/";
+  window.location.href = "post.html";
+}
 
-      if (document.cookie != null) {
-        window.location.href = "post.html"; // Redirect user to the post page
-      }
-    }
+function addComment(postId, text) {
+  let posts = readPost();
+  let post = posts.find(p => p.id === postId);
 
-    function render() {
-      const postContainer = document.getElementById('mainPostList');
-      const posts = readPost(); // grab post contents
+  if (!post.comments) post.comments = [];
 
-      // html contains ALL of the stuff in the post table
-      let html = ``;
+  post.comments.push({
+    text: text,
+    date: new Date().toLocaleString()
+  });
 
-      // POST ITEM DISPLAY //
-      posts.forEach((item, i) => {
-        const profile = JSON.parse(localStorage.getItem('profile'));
-        let location = "";
-        if (item.areaName == profile[item.area]) {
-          location = item.area
-        }
-        else {
-          location = item.areaName + " " + item.area;
-        }
+  writePost(posts);
+  render();
+}
 
-        html += `
-        <div class="postBody">
-          <div class="r1">
-            <button role="link" class="title" onclick="selectPost(${item.id})">${item.title}</button>
-            <p class"info">${item.user}  ${location}  ${item.type}</p>
+function render() {
+  const postContainer = document.getElementById('mainPostList');
+  const posts = readPost();
+
+  let html = ``;
+
+  posts.forEach(item => {
+    let commentsHTML = "";
+
+    if (item.comments && item.comments.length > 0) {
+      item.comments.forEach(c => {
+        commentsHTML += `
+          <div class="comment">
+            <p>${c.text}</p>
+            <span class="comment-date">${c.date}</span>
           </div>
-          <p class="content">${item.content}</p>
-          <p class="date">${item.date}</p>
-          <button class="delete" onclick="removePost(${item.id})">x</button>
-        </div>`;
-
-        
-
+        `;
       });
-      postContainer.innerHTML = html;
+    } else {
+      commentsHTML = `<p class="no-comments">No comments yet.</p>`;
     }
 
-    
+    html += `
+      <div class="postBody">
+        <div class="r1">
+          <button role="link" class="title" onclick="selectPost(${item.id})">
+            ${item.title}
+          </button>
+          <p class="info">${item.user} | ${item.type}</p>
+        </div>
 
-    render();
+        <p class="content">${item.content}</p>
+        <p class="date">${item.date}</p>
+
+        <button class="delete" onclick="removePost(${item.id})">x</button>
+
+        <div class="comments-section">
+          <h4>Comments</h4>
+
+          <div class="comments-list">
+            ${commentsHTML}
+          </div>
+
+          <form onsubmit="event.preventDefault(); submitComment(${item.id}, this)">
+            <input type="text" class="commentInput" placeholder="Write a comment..." required>
+            <button type="submit">Post</button>
+          </form>
+        </div>
+      </div>
+    `;
+  });
+
+  postContainer.innerHTML = html;
+}
+
+function submitComment(postId, form) {
+  const input = form.querySelector(".commentInput");
+  addComment(postId, input.value);
+  input.value = "";
+}
+
+render();
