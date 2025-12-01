@@ -93,7 +93,6 @@ body{
 
   display: grid;
   grid-template-rows: 100px auto 80px;
-  grid-template-columns: auto;
   grid-template-areas: 
   'header'
   'body'
@@ -112,16 +111,20 @@ footer {
 }
 
 main {
+  justify-content: center;
+  justify-items: center;
+  justify-self: center;
+  width: 1000px;
+}
+
+main.index {
   color:#0f1724;
-  grid-area: body;
   display: grid;
-  grid-template-rows: auto auto;
-  grid-template-columns: 200px 1000px 200px;
-  grid-template-areas: 
-  'banner banner banner'
-  '. content .';
+  width: 100%;
+  grid-template-rows: 400px auto;
 
   justify-content: center;
+  justify-items: center;
 }
 
 .topbar {
@@ -170,12 +173,13 @@ section {
 
 .content { /* body content container */
   grid-area: content;
+  grid-row-start: 2;
   background:var(--card);
   border:1px solid var(--border);
   border-radius:var(--radius);
-  /* width:100%; */
+  width:100%;
   max-width:var(--max-width);
-  margin:0;
+  margin: 20px;
   padding:16px;
   display:flex;
   flex-direction:column;
@@ -263,27 +267,39 @@ button, .button {
 
 /***** index.html homepage *****/
 #homepageContent { /* container */
+  width: 1000px;
+  justify-content: space-between;
   display: grid;
-    grid-template-rows: 10% 50% 50%;
-    grid-template-columns: 50% 50%;
+    grid-template-rows: 9% 44% 44%;
+    grid-template-columns: 49% 49%;
     grid-template-areas: 
     'header header'
     'questions news'
     'help ads';
-  height: 1000px;
+  height: 900px;
   header {grid-area: header;}
+  overflow-y: visible;
 }
-#questionsSection {grid-area: questions;}
-#newsSection {grid-area: news;}
-#helpSection {grid-area: help;}
-#adsSection {grid-area: ads;}
+#questionsSection {
+  grid-area: questions;
+}
+#newsSection {
+  grid-area: news;
+}
+#helpSection {
+  grid-area: help;
+}
+#adsSection {
+  grid-area: ads;
+}
 
 .banner {
-  grid-area: banner;
+  grid-row-start: 1;
   position: relative;
   width: 100%;
   margin: 0;
   /* height: 200px; */
+  clip-path: border-box;
 
   h1 {
     position:absolute;
@@ -298,7 +314,7 @@ button, .button {
 
   img {
     width: 100%;
-    object-fit: contain;
+    object-fit: scale-down;
     border-radius: var(--radius);
   }
 }
@@ -383,18 +399,12 @@ label {
   }
 }
 
-.draftButtons, .confirmButtons {
-  display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
-  grid-template-areas: 
-  'left . right';
+.draftButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-.leftSide {grid-area: left;}
-.submit {
-  grid-area: right;
-  justify-self: right;
-}
 
 /********** feed.html **********/
 
@@ -402,15 +412,16 @@ label {
     background:var(--card);
     border:1px solid var(--border);
     border-radius:var(--radius);
-    /* width:100%; */
+    width: 1000px;
     max-width:var(--max-width);
-    margin:0;
+    margin:20px;
     padding:16px;
     display:flex;
     flex-direction:column;
     gap:var(--gap);
     overflow-y:auto;
     height:calc(100vh - 240px);
+    justify-self: center;
 }
 
 /* Feed.html*/
@@ -442,18 +453,17 @@ label {
   gap:8px;
 
   display: grid;
-  grid-template-rows: 50px 70px 40px;
+  grid-template-rows: 50px 70px 50px;
   grid-template-columns: 15fr 5fr;
-  grid-template-areas: 
-  'title info'
-  'postContent postContent'
-  'date .';
+  align-items: center;
 
-  .title {
-    grid-area: title;
+  .postTitle {
+    grid-column: 1 / 1;
+    justify-self: left;
     font-size:17px;
     font-weight:700;
     margin:0;
+    padding: 0;
     color:#0b1220;
     box-shadow: none;
     background-color: transparent;
@@ -462,29 +472,37 @@ label {
     width: 90%;
   }
 
-  .content {
-    grid-area: postContent;
+  .postContent {
+    grid-column-start: 1;
+    grid-column-end: span 2;
     font-size:15px;
     color:var(--muted);
     margin:0;
     white-space:pre-wrap;
-    width: 90%;
+    width: 100%;
     font-size: 1rem;
     height: 95px;
 
     overflow: hidden;
   }
 
-  .info {
-    grid-area: info;
+  .postInfo {
+    grid-column: 2 / 2;
+    font-weight:700;
+    display: flex;
+    justify-content: space-evenly;
+    color:var(--muted);
   }
 
-  .date {
-    grid-area: info;
+  .postDate {
+    grid-column-start: 1;
+    justify-self: left;
+    color:var(--muted);
   }
 
-  .delete {
-    grid-area: delete;
+  .postDelete {
+    grid-column-start: 2;
+    justify-self: right;
     color: black;
     border: none;
     background-color: transparent;
@@ -495,4 +513,22 @@ label {
 /*********  **********/
 .profileMain p {
   padding: 10px;
+}
+
+.profileMain {
+  justify-self: center;
+
+  
+  width:100%;
+  max-width:var(--max-width);
+  margin:20px;
+  padding:16px;
+  display:flex;
+  flex-direction:column;
+  gap:var(--gap);
+  
+  
+}
+.profileButtons {
+  justify-self: right;
 }

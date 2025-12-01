@@ -6,8 +6,12 @@ function writePostDraft()
   const draft = JSON.parse(localStorage.getItem('draftPost'));
   console.log(draft);
 
-  document.getElementById("postTitle").innerHTML = draft.title;
-  document.getElementById("postContent").innerHTML = draft.content;
+  document.getElementsByClassName("postTitle").innerHTML = draft.title;
+  document.getElementsByClassName("confirmationContent").innerHTML = draft.content;
+
+  document.getElementsByClassName("user").innerHTML = draft.user;
+  document.getElementsByClassName("location").innerHTML = draft.area;
+  document.getElementsByClassName("type").innerHTML = draft.type;
 
   // console.log(post.title + post.content);
 }

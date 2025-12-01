@@ -58,19 +58,22 @@ function render() {
       commentsHTML = `<p class="no-comments">No comments yet.</p>`;
     }
 
+    const profile = JSON.parse(localStorage.getItem('profile'));
+    let areaLocation = "";
+    if (item.areaName == profile[item.area]) {
+      areaLocation = "My " + item.area;
+    }
+    else {
+      areaLocation = item.areaName + " " + item.area;
+    }
+
     html += `
       <div class="postBody">
-        <div class="r1">
-          <button role="link" class="title" onclick="selectPost(${item.id})">
-            ${item.title}
-          </button>
-          <p class="info">${item.user} | ${item.type}</p>
-        </div>
-
-        <p class="content">${item.content}</p>
-        <p class="date">${item.date}</p>
-
-        <button class="delete" onclick="removePost(${item.id})">x</button>
+        <button role="link" class="postTitle" onclick="selectPost(${item.id})">${item.title}</button>
+        <div class="postInfo"><p>${item.user}</p><p>${areaLocation}</p><p>${item.type}</p></div>
+        <p class="postContent">${item.content}</p>
+        <p class="postDate">${item.date}</p>
+        <button class="postDelete" onclick="removePost(${item.id})">x</button>
 
         <div class="comments-section">
           <h4>Comments</h4>
