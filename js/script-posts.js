@@ -53,15 +53,51 @@ const KEY = 'postKey';
           </div>
           <p class="content">${item.content}</p>
           <p class="date">${item.date}</p>
+		  <p class="comment-count">${item.comments ? item.comments.length : 0} comments</p>
           <button class="delete" onclick="removePost(${item.id})">x</button>
         </div>`;
+		  
+const postId = 1;
 
-        
+const commentForm = document.getElementById("commentForm");
+const commentInput = document.getElementById("commentInput");
+const commentList = document.getElementById("commentList");
+
+function loadComments() {
+  const comments = JSON.parse(localStorage.getItem(`comments_${postId}`)) || [];
+  commentList.innerHTML = "";
+
+  comments.forEach(text => {
+    let li = document.createElement("li");
+    li.textContent = text;
+    commentList.appendChild(li);
+  });
+}
+
+commentForm.addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const text = commentInput.value.trim();
+  if (text === "") return;
+
+  const comments = JSON.parse(localStorage.getItem(`comments_${postId}`)) || [];
+  comments.push(text);
+
+  localStorage.setItem(`comments_${postId}`, JSON.stringify(comments));
+
+  commentInput.value = "";
+  loadComments();
+});
+
+loadComments();
+
+
+   
+
+
 
       });
       postContainer.innerHTML = html;
     }
-
-    
-
+  
     render();
