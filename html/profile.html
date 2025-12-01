@@ -37,9 +37,44 @@
   <main>
     <div class="content">
       <!-- Profile editor / display -->
+      
+      <!-- Profile Card: populated from saved profile data when present -->
+      <section class="profileCard" id="profileCard">
+        <div class="profileMain">
+          <h2 class="firstName" id="nameP">Your name</h2>
+          <div class="flowLeft">
+            <p class="city" id="cityP"></p>
+            <p class="county" id="countyP"></p>
+            <p class="state" id="stateP"></p>
+            <p class="country" id="countryP"></p>
+            <p class="zip" id="zipP"></p>
+          </div>
+          
+          <!-- <p class="profileBio" id="pf_bio_display">Profile bio will appear here.</p> -->
+        </div>
 
+        <!-- Edit / Create controls -->
+        <div class="profileButtons">
+          <button onclick="loadProfile()">Create / Edit Profile</button>
+        </div>
+
+        <!-- <dl class="profileStats" id="pf_stats">
+          <div>
+            <dt>Posts</dt>
+            <dd id="pf_posts">0</dd>
+          </div>
+          <div>
+            <dt>Comments</dt>
+            <dd id="pf_comments">0</dd>
+          </div>
+          <div>
+            <dt>Member Since</dt>
+            <dd id="pf_memberSince">-</dd>
+          </div>
+        </dl> -->
       <!-- Profile form: shown when the user needs to create or edit their profile -->
-      <form  name="profileForm" id="profileForm">
+      </section>
+      <form  name="profileForm" id="profileForm" style="display: none">
           <div class="name">
             <label for="firstName">First name</label>
             <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
@@ -78,41 +113,6 @@
           
         </form>
 
-      <!-- Profile Card: populated from saved profile data when present -->
-      <section class="profileCard" id="profileCard">
-        <div class="profileMain">
-          <h2 class="firstName" id="nameP">Your name</h2>
-          <div class="flowLeft">
-            <p class="city" id="cityP"></p>
-            <p class="county" id="countyP"></p>
-            <p class="state" id="stateP"></p>
-            <p class="country" id="countryP"></p>
-            <p class="zip" id="zipP"></p>
-          </div>
-          
-          <!-- <p class="profileBio" id="pf_bio_display">Profile bio will appear here.</p> -->
-        </div>
-
-        <!-- Edit / Create controls -->
-        <div class="profileButtons">
-          <button onclick="loadProfile()">Create / Edit Profile</button>
-        </div>
-
-        <!-- <dl class="profileStats" id="pf_stats">
-          <div>
-            <dt>Posts</dt>
-            <dd id="pf_posts">0</dd>
-          </div>
-          <div>
-            <dt>Comments</dt>
-            <dd id="pf_comments">0</dd>
-          </div>
-          <div>
-            <dt>Member Since</dt>
-            <dd id="pf_memberSince">-</dd>
-          </div>
-        </dl> -->
-      </section>
 
 
     </div>
