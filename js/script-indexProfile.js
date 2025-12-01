@@ -57,14 +57,15 @@ function showProfile() {
 // Check to see if it is a new user, and if they are on the homepage or profile page
 function checkPage() {
   console.log("Checking page " + window.location.pathname);
-  console.log(profile["firstName"]);
-  if (profile != null) {
-    showProfile();
+  if (profile == null || profile.firstName == "") {
+    document.getElementById("createProfile").style.display = "grid";
+    document.getElementById("homepageContent").style.display = "none";
+    console.log(window.location.pathname);
   }
   else {
-    loadProfile();
+    document.getElementById("createProfile").style.display = "none";
+    document.getElementById("homepageContent").style.display = "grid";
   }
-  console.log(window.location.pathname);
 }
 
 
