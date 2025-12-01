@@ -98,3 +98,4 @@ function submitComment(postId, form) {
 }
 
 render();
+
