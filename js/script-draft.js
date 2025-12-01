@@ -12,10 +12,6 @@ function loadPastDraft() {
     document.forms["postForm"]["title"].value = draftPost["title"];
     document.forms["postForm"]["content"].value = draftPost["content"];
 
-    // Figure out v
-    // draftPost.area = document.forms["postForm"]["area"].value = draftPost["area"];
-    // draftPost.area = document.forms["postForm"]["type"].value = draftPost["type"];
-
     console.log("Load draft");
   }
   else {
@@ -53,8 +49,6 @@ function readDraft()
 
   console.log("Posts location is: " + draftPost.areaName);
 
-  // console.log("Post title: " + draftPost.title);
-  // console.log(draftPost);
 
   // let post = JSON.parse(localStorage.getItem('draftPost')); // turn into object
  

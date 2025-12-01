@@ -329,10 +329,18 @@ button, .button {
 
 .banned {
   background-color: red;
+  color: black;
+  border-radius: var(--radius);
+  padding: 2px;
+  font-weight: 600;
 }
 
 .unrecommended {
   background-color: orange;
+  color: black;
+  border-radius: var(--radius);
+  padding: 2px;
+  font-weight: 600;
 }
 
 /********** Forms (general) **********/
