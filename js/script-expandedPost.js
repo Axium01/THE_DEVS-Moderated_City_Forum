@@ -9,15 +9,10 @@ function writePost(post) {
   localStorage.setItem(KEY, JSON.stringify(post));
 }
 
-function getPostIdFromCookie() {
-  const parts = document.cookie.split(";");
-  for (let p of parts) {
-    p = p.trim();
-    if (p.startsWith("post=")) {
-      return parseInt(p.split("=")[1]);
-    }
-  }
-  return null;
+function getPostId() {
+  const id = JSON.parse(localStorage.getItem("selectedPostID"));
+  console.log("Saved ID: " + id);
+  return id;
 }
 
 function addComment(postId, text) {
@@ -25,10 +20,12 @@ function addComment(postId, text) {
   let post = posts.find(p => p.id === postId);
 
   if (!post.comments) post.comments = [];
+  let profile = JSON.parse(localStorage.getItem('profile'));
 
   post.comments.push({
     text: text,
-    date: new Date().toLocaleString()
+    date: new Date().toLocaleString(),
+    user: profile.firstName
   });
 
   writePost(posts);
@@ -39,7 +36,7 @@ function render() {
   const postContainer = document.getElementById('mainPostList');
   const posts = readPost();
 
-  const postId = getPostIdFromCookie();
+  const postId = getPostId();
   let html = "";
 
   const item = posts.find(p => p.id === postId);
@@ -56,34 +53,44 @@ function render() {
       commentsHTML += `
       <div class="comment">
         <p>${c.text}</p>
-        <span class="comment-date">${c.date}</span>
+        <span class="comment-date">${c.user} ${c.date}</span>
       </div>`;
     });
   } else {
     commentsHTML = `<p class="no-comments">No comments yet.</p>`;
   }
 
+  const profile = JSON.parse(localStorage.getItem('profile'));
+  let areaLocation = "";
+  if (item.areaName == profile[item.area]) {
+    areaLocation = "My " + item.area;
+  }
+  else {
+    areaLocation = item.areaName + " " + item.area;
+  }
+
   html = `
     <div class="postBody">
-
-      <h1 class="postTitle">${item.title}</h1>
-      <p class="postInfo">${item.user} | ${item.type}</p>
-      <p class="fullPostContent">${item.content}</p>
+      <button role="link" class="postTitle" onclick="selectPost(${item.id})">${item.title}</button>
+      <div class="postInfo"><p>${item.user}</p><p>${areaLocation}</p><p>${item.type}</p></div>
+      <p class="postContentExpanded">${item.content}</p>
       <p class="postDate">${item.date}</p>
+    </div>
+      
 
-      <div class="comments-section">
-        <h3>Comments</h3>
-        <div class="comments-list">
-          ${commentsHTML}
-        </div>
+    <div class="comments-section">
+      <h4>Comments</h4>
 
-        <form onsubmit="event.preventDefault(); submitComment(${item.id}, this)">
-          <input type="text" class="commentInput" placeholder="Add a comment..." required>
-          <button type="submit">Post</button>
-        </form>
+      <div class="comments-list">
+        ${commentsHTML}
       </div>
 
+      <form onsubmit="event.preventDefault(); submitComment(${item.id}, this)">
+        <input type="text" class="commentInput" placeholder="Write a comment..." required>
+        <button type="submit">Post</button>
+      </form>
     </div>
+
   `;
 
   postContainer.innerHTML = html;

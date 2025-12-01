@@ -17,7 +17,7 @@ function removePost(id) {
 }
 
 function selectPost(id) {
-  document.cookie = "post=" + id + ";path=/";
+  localStorage.setItem("selectedPostID", JSON.stringify(id));
   window.location.href = "post.html";
 }
 
@@ -44,19 +44,22 @@ function render() {
 
   posts.forEach(item => {
     let commentsHTML = "";
+    let commentCount = 0;
 
     if (item.comments && item.comments.length > 0) {
-      item.comments.forEach(c => {
-        commentsHTML += `
-          <div class="comment">
-            <p>${c.text}</p>
-            <span class="comment-date">${c.date}</span>
-          </div>
-        `;
-      });
-    } else {
-      commentsHTML = `<p class="no-comments">No comments yet.</p>`;
+      commentCount = item.comments.length;
+      // item.comments.forEach(c => {
+      //   commentsHTML += `
+      //     <div class="comment">
+      //       <p>${c.text}</p>
+      //       <span class="comment-date">${c.date}</span>
+      //     </div>
+      //   `;
+      // });
     }
+    // } else {
+    //   commentsHTML = `<p class="no-comments">No comments yet.</p>`;
+    // }
 
     const profile = JSON.parse(localStorage.getItem('profile'));
     let areaLocation = "";
@@ -72,23 +75,24 @@ function render() {
         <button role="link" class="postTitle" onclick="selectPost(${item.id})">${item.title}</button>
         <div class="postInfo"><p>${item.user}</p><p>${areaLocation}</p><p>${item.type}</p></div>
         <p class="postContent">${item.content}</p>
-        <p class="postDate">${item.date}</p>
+        <p class="postDate">${item.date}    ${commentCount} Comments</p>
         <button class="postDelete" onclick="removePost(${item.id})">x</button>
-
-        <div class="comments-section">
-          <h4>Comments</h4>
-
-          <div class="comments-list">
-            ${commentsHTML}
-          </div>
-
-          <form onsubmit="event.preventDefault(); submitComment(${item.id}, this)">
-            <input type="text" class="commentInput" placeholder="Write a comment..." required>
-            <button type="submit">Post</button>
-          </form>
-        </div>
       </div>
-    `;
+`;
+      //   <div class="comments-section">
+      //     <h4>Comments</h4>
+
+      //     <div class="comments-list">
+      //       ${commentsHTML}
+      //     </div>
+
+      //     <form onsubmit="event.preventDefault(); submitComment(${item.id}, this)">
+      //       <input type="text" class="commentInput" placeholder="Write a comment..." required>
+      //       <button type="submit">Post</button>
+      //     </form>
+      //   </div>
+      // </div>
+    
   });
 
   postContainer.innerHTML = html;

@@ -20,7 +20,7 @@
 
 /***** Responsiveness *****/
 /* Big screens */
-@media screen and (max-width: 810px){
+@media screen and (max-width: 950px){
   header  {
     justify-content: space-between;
     nav {
@@ -35,7 +35,7 @@
 }
 
 /* Small screens */
-@media screen and (min-width: 810px){
+@media screen and (min-width: 951px){
   header {
     justify-content: stretch;
     nav {
@@ -133,7 +133,7 @@ main.index {
   border-bottom:1px solid var(--border);
   display:flex;
   align-items:center;
-  padding:14px 20px;
+  /* padding:14px 20px; */
   position:sticky;
   top:0;
   z-index:30;
@@ -149,7 +149,7 @@ main.index {
     text-decoration: none;
     font-weight:700;
     padding-top: 50px;
-    padding-left: 20px;
+    padding-left: 10px;
   }
   h1 { 
     font-size:2rem;
@@ -298,8 +298,9 @@ button, .button {
   position: relative;
   width: 100%;
   margin: 0;
-  /* height: 200px; */
+  height: 300px;
   clip-path: border-box;
+  border: 1px solid black;
 
   h1 {
     position:absolute;
@@ -312,10 +313,32 @@ button, .button {
     background-color: rgba(0, 0, 0, 0.5);
   }
 
+  .imgContainer {
+    border: 1px solid red;
+    
+  }
+
   img {
     width: 100%;
     object-fit: scale-down;
     border-radius: var(--radius);
+  }
+
+  label {
+    /* border: 1px solid black; */
+    position:absolute;
+    bottom: 0%;
+    text-align: left;
+    margin: 0;
+    font-size: .8rem;
+    width: 100%;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  a {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
   }
 }
 
@@ -461,7 +484,7 @@ label {
   gap:8px;
 
   display: grid;
-  grid-template-rows: 50px 70px 50px;
+  grid-template-rows: 50px auto 50px;
   grid-template-columns: 15fr 5fr;
   align-items: center;
 
@@ -492,6 +515,21 @@ label {
     height: 95px;
 
     overflow: hidden;
+  }
+
+  .postContentExpanded {
+    grid-column-start: 1;
+    grid-column-end: span 2;
+    font-size:15px;
+    color:var(--muted);
+    margin:0;
+    white-space:pre-wrap;
+    width: 100%;
+    font-size: 1rem;
+    min-height: 95px;
+    height: auto;
+    overflow:visible;
+    /* border: 1px solid red; */
   }
 
   .postInfo {
