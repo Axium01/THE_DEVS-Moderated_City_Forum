@@ -47,8 +47,8 @@ function showProfile() {
   console.log(profile);
 
   document.getElementById("nameP").innerHTML = "" + profile['firstName'] + " " + profile.lastName;
-  document.getElementById("cityP").innerHTML = "" + profile.city + " City,";
-  document.getElementById("countyP").innerHTML = "" + profile.county  + " County,";
+  document.getElementById("cityP").innerHTML = "" + profile.city + ",";
+  document.getElementById("countyP").innerHTML = "" + profile.county  + ",";
   document.getElementById("stateP").innerHTML = "" + profile.state + ",";
   document.getElementById("countryP").innerHTML = "" + profile.country + ",";
   document.getElementById("zipP").innerHTML = "" + profile.zip;
