@@ -64,4 +64,39 @@ const KEY = 'postKey';
 
     
 
+
     render();
+
+const postId = 1;
+
+const commentForm = document.getElementById("commentForm");
+const commentInput = document.getElementById("commentInput");
+const commentList = document.getElementById("commentList");
+
+function loadComments() {
+  const comments = JSON.parse(localStorage.getItem(`comments_${postId}`)) || [];
+  commentList.innerHTML = "";
+
+  comments.forEach(text => {
+    let li = document.createElement("li");
+    li.textContent = text;
+    commentList.appendChild(li);
+  });
+}
+
+commentForm.addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const text = commentInput.value.trim();
+  if (text === "") return;
+
+  const comments = JSON.parse(localStorage.getItem(`comments_${postId}`)) || [];
+  comments.push(text);
+
+  localStorage.setItem(`comments_${postId}`, JSON.stringify(comments));
+
+  commentInput.value = "";
+  loadComments();
+});
+
+loadComments();
