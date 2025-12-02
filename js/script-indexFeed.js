@@ -19,7 +19,7 @@ function removePost(id) {
 
 function selectPost(id) {
   localStorage.setItem("selectedPostID", JSON.stringify(id));
-  window.location.href = "js/post.html";
+  window.location.href = "html/post.html";
 }
 
 function addComment(postId, text) {
