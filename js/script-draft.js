@@ -44,6 +44,12 @@ function readDraft()
   
   let tempArea = document.forms["postForm"]["area"].value;
   let profile = JSON.parse(localStorage.getItem('profile'));
+  if (profile == null) {
+    alert("Please create a profile before posting!" +
+         "If you wish to keep the current draft, press \"Save Draft\".");
+    return;
+  }
+  
   draftPost.areaName = profile[tempArea];
   draftPost.user = profile.firstName;
 
