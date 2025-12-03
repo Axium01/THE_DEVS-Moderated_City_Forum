@@ -624,6 +624,7 @@ label {
     color:#0b1220;
     box-shadow: none;
     background-color: transparent;
+    text-decoration: underline 1.5px black;
     border: none;
     text-align: left;
     width: 90%;
