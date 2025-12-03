@@ -24,6 +24,8 @@ function loadProfile() {
 
 function saveProfile()
 {
+  // The user can only make a profile ONCE on the index page, so this shouldn't become an issue... I hope.
+  profile = {firstName:"", lastName:"", city:"", country:"", county:"", zip:"", state:""};
   // Get values from input elements
   profile.firstName = document.forms["idexProfileForm"]["firstName"].value;
   profile.lastName = document.forms["idexProfileForm"]["lastName"].value;
