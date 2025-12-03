@@ -70,8 +70,8 @@ function filterPost() {
   }
 
   // if EVERYTHING is false
-  if (document.forms["filters]["hpCity"].checked == false &&
-      document.forms["filters]["county"].checked == false &&
+  if (document.forms["filters"]["hpCity"].checked == false &&
+      document.forms["filters"]["county"].checked == false &&
       document.forms["filters"]["state"].checked == false &&
       document.forms["filters"]["country"].checked == false &&
       document.forms["filters"]["Question"].checked == false &&
@@ -143,4 +143,5 @@ function submitComment(postId, form) {
 }
 
 filterPost();
+
 
