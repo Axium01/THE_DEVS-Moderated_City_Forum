@@ -11,6 +11,8 @@ function loadPastDraft() {
     draftPost = JSON.parse(localStorage.getItem('draftPost'));
     document.forms["postForm"]["title"].value = draftPost["title"];
     document.forms["postForm"]["content"].value = draftPost["content"];
+    document.forms["postForm"]["area"].value = draftPost.area;
+    document.forms["postForm"]["type"].value = draftPost.type;
 
     console.log("Load draft");
   }
@@ -59,7 +61,7 @@ function readDraft() {
 
   console.log(draftPost);
 
-  window.location.href = "confirmation.html"; // Redirect user to the form confirmation page
+  window.location.assign = "confirmation.html"; // Redirect user to the form confirmation page
  
 }
 

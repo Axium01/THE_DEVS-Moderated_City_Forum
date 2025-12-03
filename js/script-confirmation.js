@@ -2,8 +2,8 @@ let containsBannedWords = false;
 let containsUnrecommendedWords = false;
 let draft = JSON.parse(localStorage.getItem('draftPost'));
 
-const bannedWords = ["swearword"];
-const unrecommendedWords = ["hate", "kill", "stupid", "useless"]
+const bannedWords = ["fuck", "shit", "hell", "bitch", "swearword"];
+const unrecommendedWords = ["hate", "kill", "stupid", "useless", "suck"];
 
 document.getElementById("success").style.display = "none";
 document.getElementById("banned").style.display = "none";
@@ -19,7 +19,9 @@ function filterDraft() {
   // Go through title
   let tempWord = "";
   let draftTitle = draft.title;
+  let draftTitleLowerCase = draftTitle.toLowerCase();
   let draftContent = draft.content;
+  let draftContentLowerCase = draftContent.toLowerCase();
   let beginingOfWord = 0;
   containsBannedWords = false;
   containsUnrecommendedWords = false;
@@ -27,9 +29,7 @@ function filterDraft() {
 
   // Banned words
   for ( i = 0; i < bannedWords.length; i++) {
-
-    let wordStart = draftTitle.indexOf(bannedWords[i]);
-
+    let wordStart = draftTitleLowerCase.indexOf(bannedWords[i]);
 
     if (wordStart != -1) {
       containsBannedWords = true;
@@ -42,12 +42,11 @@ function filterDraft() {
   
   // unrecommened words
   for ( i = 0; i < unrecommendedWords.length; i++) {
-    let wordStart = draftTitle.indexOf(unrecommendedWords[i]);
+    let wordStart = draftTitleLowerCase.indexOf(unrecommendedWords[i]);
 
     if (wordStart != -1) {
       containsUnrecommendedWords = true;
       tempWord = RegExp(unrecommendedWords[i], 'gi');
-      draftTitle = draftTitle.replace(tempWord, `<span class="unrecommended" title="Unrecommended word">${unrecommendedWords[i]}</span>`);
       draftTitle = draftTitle.replaceAll(tempWord, `<span class="unrecommended" title="Unrecommended word">${unrecommendedWords[i]}</span>`);
       draft.title = draftTitle;
     }
@@ -57,12 +56,12 @@ function filterDraft() {
   // Content
    // Banned words
   for ( i = 0; i < bannedWords.length; i++) {
-    let wordStart = draftContent.indexOf(bannedWords[i]);
+    let wordStart = draftContentLowerCase.indexOf(bannedWords[i]);
+    
     if (wordStart != -1) {
       containsBannedWords = true;
       
       tempWord = RegExp(bannedWords[i], 'gi');
-      draftContent = draftContent.replace(tempWord, `<span class='banned 'title="Restricted word">${bannedWords[i]}</span>`);
       draftContent = draftContent.replaceAll(tempWord, `<span class='banned' title="Restricted word">${bannedWords[i]}</span>`);
       draft.content = draftContent;
     }
@@ -70,13 +69,12 @@ function filterDraft() {
   
   // unrecommened words
   for ( i = 0; i < unrecommendedWords.length; i++) {
-    let wordStart = draftContent.indexOf(unrecommendedWords[i]);
+    let wordStart = draftContentLowerCase.indexOf(unrecommendedWords[i]);
 
     if (wordStart != -1) {
       containsUnrecommendedWords = true;
       
       tempWord = RegExp(unrecommendedWords[i], 'gi');
-      draftContent = draftContent.replace(tempWord, `<span class="unrecommended" title="Unrecommended word">${unrecommendedWords[i]}</span>`);
       draftContent = draftContent.replaceAll(tempWord, `<span class="unrecommended" title="Unrecommended word">${unrecommendedWords[i]}</span>`);
       draft.content = draftContent;
     }
@@ -85,29 +83,22 @@ function filterDraft() {
 }
 
 
-
-
 function writePostDraft()
 {
   filterDraft();
   if (containsBannedWords == true) { // if there are restricted words require user to rewrite post
-    console.log("Forced rewrite");
+    // console.log("Forced rewrite");
     document.getElementById("banned").style.display = "grid";
     document.getElementById("createPost").style.visibility = "hidden";
   }
   else if (containsBannedWords == false && containsUnrecommendedWords == true) { // Allow user to rewirte their posts or submit
-    console.log("Recommended rewrite");
+    // console.log("Recommended rewrite");
     document.getElementById("advice").style.display = "grid";
-
   }
   else {
-    console.log("No rewrite");
-
+    // console.log("No rewrite");
     document.getElementById("success").style.display = "grid";
-
-    console.log(draft);
-
-    
+    // console.log(draft);
   }
   document.getElementById("postTitle").innerHTML = draft.title;
   document.getElementById("postContent").innerHTML = draft.content;
