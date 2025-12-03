@@ -69,6 +69,25 @@ function filterPost() {
     filterTypeList.push("ad");
   }
 
+  // if EVERYTHING is false
+  if (document.forms["filters]["hpCity"].checked == false &&
+      document.forms["filters]["county"].checked == false &&
+      document.forms["filters"]["state"].checked == false &&
+      document.forms["filters"]["country"].checked == false &&
+      document.forms["filters"]["Question"].checked == false &&
+      document.forms["filters"]["News"].checked == false &&
+      document.forms["filters"]["Help"].checked == false &&
+      document.forms["filters"]["Ad"].checked == false) {
+    filterAreaList.push("city");
+    filterAreaList.push("county");
+    filterAreaList.push("state");
+    filterAreaList.push("country");
+    filterAreaList.push("question");
+    filterAreaList.push("news");
+    filterAreaList.push("help");
+    filterAreaList.push("ad");
+  }
+
   // draftPost.area = document.forms["postForm"]["area"].value;
   render();
 }
@@ -124,3 +143,4 @@ function submitComment(postId, form) {
 }
 
 filterPost();
+
