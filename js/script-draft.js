@@ -44,6 +44,7 @@ function readDraft() {
   let profile = JSON.parse(localStorage.getItem('profile'));
   if (profile == null) {
     console.log("NO PROFILE");
+    alert("Please make a profile before posting!")
   }
   
   draftPost.areaName = profile[tempArea];
