@@ -72,21 +72,18 @@ function render() {
       commentCount = item.comments.length;
     }
     
-    if (item.areaName == profile[item.area]) {
-      
-      if (filterAreaList.includes(item.area) == true && item.type == "question")
-      {
-        areaLocation = item.areaName;
-        html += `
-        <div class="postBody">
-          <button role="link" class="postTitle" onclick="selectPost(${item.id})">${item.title}</button>
-          <div class="postInfo"><p>${item.user}</p><p>${areaLocation}</p></div>
-          <p class="postContent">${item.content}</p>
-          <p class="postDate">${item.date}    ${commentCount} Comments</p>
-          <button class="postDelete" onclick="removePost(${item.id})">x</button>
-        </div>
-        `;
-      }
+    if (filterAreaList.includes(item.area) == true && item.type == "question")
+    {
+      areaLocation = item.areaName;
+      html += `
+      <div class="postBody">
+        <button role="link" class="postTitle" onclick="selectPost(${item.id})">${item.title}</button>
+        <div class="postInfo"><p>${item.user}</p><p>${areaLocation}</p></div>
+        <p class="postContent">${item.content}</p>
+        <p class="postDate">${item.date}    ${commentCount} Comments</p>
+        <button class="postDelete" onclick="removePost(${item.id})">x</button>
+      </div>
+      `;
     }
   });
   postContainer.innerHTML = html;
@@ -103,22 +100,19 @@ function render() {
     if (item.comments && item.comments.length > 0) {
       commentCount = item.comments.length;
     }
-    
-    if (item.areaName == profile[item.area]) {
-      
-      if (filterAreaList.includes(item.area) == true && item.type == "news")
-      {
-        areaLocation = item.areaName;
-        html += `
-        <div class="postBody">
-          <button role="link" class="postTitle" onclick="selectPost(${item.id})">${item.title}</button>
-          <div class="postInfo"><p>${item.user}</p><p>${areaLocation}</p></div>
-          <p class="postContent">${item.content}</p>
-          <p class="postDate">${item.date}    ${commentCount} Comments</p>
-          <button class="postDelete" onclick="removePost(${item.id})">x</button>
-        </div>
-        `;
-      }
+  
+    if (filterAreaList.includes(item.area) == true && item.type == "news")
+    {
+      areaLocation = item.areaName;
+      html += `
+      <div class="postBody">
+        <button role="link" class="postTitle" onclick="selectPost(${item.id})">${item.title}</button>
+        <div class="postInfo"><p>${item.user}</p><p>${areaLocation}</p></div>
+        <p class="postContent">${item.content}</p>
+        <p class="postDate">${item.date}    ${commentCount} Comments</p>
+        <button class="postDelete" onclick="removePost(${item.id})">x</button>
+      </div>
+      `;
     }
   });
   postContainer.innerHTML = html;
@@ -136,21 +130,18 @@ function render() {
       commentCount = item.comments.length;
     }
     
-    if (item.areaName == profile[item.area]) {
-      
-      if (filterAreaList.includes(item.area) == true && item.type == "help")
-      {
-        areaLocation = item.areaName;
-        html += `
-        <div class="postBody">
-          <button role="link" class="postTitle" onclick="selectPost(${item.id})">${item.title}</button>
-          <div class="postInfo"><p>${item.user}</p><p>${areaLocation}</p></div>
-          <p class="postContent">${item.content}</p>
-          <p class="postDate">${item.date}    ${commentCount} Comments</p>
-          <button class="postDelete" onclick="removePost(${item.id})">x</button>
-        </div>
-        `;
-      }
+    if (filterAreaList.includes(item.area) == true && item.type == "help")
+    {
+      areaLocation = item.areaName;
+      html += `
+      <div class="postBody">
+        <button role="link" class="postTitle" onclick="selectPost(${item.id})">${item.title}</button>
+        <div class="postInfo"><p>${item.user}</p><p>${areaLocation}</p></div>
+        <p class="postContent">${item.content}</p>
+        <p class="postDate">${item.date}    ${commentCount} Comments</p>
+        <button class="postDelete" onclick="removePost(${item.id})">x</button>
+      </div>
+      `;
     }
   });
   postContainer.innerHTML = html;
@@ -166,21 +157,18 @@ function render() {
       commentCount = item.comments.length;
     }
     
-    if (item.areaName == profile[item.area]) {
-      
-      if (filterAreaList.includes(item.area) == true && item.type == "ad")
-      {
-        areaLocation = item.areaName;
-        html += `
-        <div class="postBody">
-          <button role="link" class="postTitle" onclick="selectPost(${item.id})">${item.title}</button>
-          <div class="postInfo"><p>${item.user}</p><p>${areaLocation}</p></div>
-          <p class="postContent">${item.content}</p>
-          <p class="postDate">${item.date}    ${commentCount} Comments</p>
-          <button class="postDelete" onclick="removePost(${item.id})">x</button>
-        </div>
-        `;
-      }
+    if (filterAreaList.includes(item.area) == true && item.type == "ad")
+    {
+      areaLocation = item.areaName;
+      html += `
+      <div class="postBody">
+        <button role="link" class="postTitle" onclick="selectPost(${item.id})">${item.title}</button>
+        <div class="postInfo"><p>${item.user}</p><p>${areaLocation}</p></div>
+        <p class="postContent">${item.content}</p>
+        <p class="postDate">${item.date}    ${commentCount} Comments</p>
+        <button class="postDelete" onclick="removePost(${item.id})">x</button>
+      </div>
+      `;
     }
   });
   postContainer.innerHTML = html;
