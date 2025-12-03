@@ -82,10 +82,10 @@ function filterPost() {
     filterAreaList.push("county");
     filterAreaList.push("state");
     filterAreaList.push("country");
-    filterAreaList.push("question");
-    filterAreaList.push("news");
-    filterAreaList.push("help");
-    filterAreaList.push("ad");
+    filterTypeList.push("question");
+    filterTypeList.push("news");
+    filterTypeList.push("help");
+    filterTypeList.push("ad");
   }
 
   // draftPost.area = document.forms["postForm"]["area"].value;
@@ -143,5 +143,6 @@ function submitComment(postId, form) {
 }
 
 filterPost();
+
 
 
