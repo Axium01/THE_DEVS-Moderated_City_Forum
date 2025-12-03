@@ -129,7 +129,7 @@ main.index {
 
 .topbar {
   grid-area: header;
-  background:var(--card);
+  background:rgba(255, 255, 255, 1);
   border-bottom:1px solid var(--border);
   display:flex;
   align-items:center;
@@ -708,4 +708,5 @@ label {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
 }
