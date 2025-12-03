@@ -33,9 +33,7 @@ function saveDraft() {
 }
 
 
-function readDraft()
-{
-  // console.log("Reading draft");
+function readDraft() {
   // Get text from the title and content input text and text area boxes
   draftPost.title = document.forms["postForm"]["title"].value;
   draftPost.content = document.forms["postForm"]["content"].value;
@@ -45,7 +43,7 @@ function readDraft()
   let tempArea = document.forms["postForm"]["area"].value;
   let profile = JSON.parse(localStorage.getItem('profile'));
   if (profile == null) {
-    alert("Please create a profile before posting!" +
+    alert("Please create a profile before posting!\n" +
          "If you wish to keep the current draft, press \"Save Draft\".");
     return;
   }
